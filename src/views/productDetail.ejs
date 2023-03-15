@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/productDetail.css">
+    <link rel="stylesheet" href="/css/create.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <%- include('./partials/header')%>
+
+
+        <div class="contenido">
+            <div class="infoproducto">
+                <div class="izquierda">
+                    <div class="titulo">
+                        <h1>
+                            <%= producto.titulo %>
+
+                        </h1>
+                        <h3 style="color:rgb(22, 157, 43); text-align: center;">
+                            <%= producto.cuotas %> Cuotas sin interes
+                        </h3>
+                    </div>
+                    <div class="precio">
+                        <% if (producto.descuento>0) { %>
+                            <div class="precio">
+                               <span style="text-decoration: line-through; color: rgb(227, 59, 59);">
+                                   $<%=toThousand(producto.precio) %>
+                               </span>
+                               <span style="color: rgb(59, 227, 73);"><%=toThousand(producto.descuento) %>%OFF</span>
+                                   <h2 >$<%=toThousand(producto.precio-((producto.precio*producto.descuento)/100)) %>
+                                   </h2>
+                           </div>
+                           <% } else { %>
+                               <h2 style="text-align: center;">$<%=toThousand(producto.precio) %></h2>
+                           <% } %>
+                    </div>
+                    <div class="botones">
+                        <a href="/productCart"><span class="botom"> Agregar al carrito <img
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAQlJREFUSEvNlMEVATEQhr+tgBKoAB1QAR3gygEdUAEXrqgAHVABKkAFqIA33mbf2pVNWPHMNZP55s8/Ew/H4Tmuz08BN1/NBZgBvW+oCytQAFW3AqzTQl49URcYAiug5gKQBc5+4TxwTAPRmSwe1FMU3gElua8DFIFtCsAJyCUB5Ey6KGggqrHoYKj0AdA3ARrA9ENA4J1p0WQnMiGILj+sZAOU1R0TYAR03gQ0/UV9XDMBxKjDi2fSeXD1zRXlVgBJWgLVCEQHmAPiXRAmBZIo27ywHNnY92IDMI2sYu8B2Z+nsAVYCoin2QLGQAuYAO1ImaQz4xSpWuE5jzaVdGYNcK7AuQf/C7gDNOwuGTttIPQAAAAASUVORK5CYII=" /></span></a>
+                        <div class="bot-carrito delet">
+                            <form action="/products/delete/<%producto.id %>?_method=DELETE" method="POST"
+                                class="form-delete">
+                                <button type="submit" class="action-button delete botom">ELIMINAR</button>
+                            </form>
+                            <button class="mueble botom editar" onclick="mostrarPopup()">Editar</button>
+                        </div>
+                    </div>
+                    <h2>Descripcion</h2>
+                    <div class="descripcion">
+
+                        <p>
+                            <%= producto.descripcion %>
+                        </p>
+                    </div>
+
+
+
+
+
+
+                    <div class="formulario-edit" id="edit">
+                        <div class="izquierda-create">
+                            <img src="/images/logo2.png" width="200px" height="200px" />
+                        </div>
+                        <form class="derecha-create" action="/products/edit/<%=
+                                            producto.id %>?_method=PUT" method="POST">
+                            <span class="titulo">Actualizar
+                                datos</span>
+                            <div class="form-section">
+                                <input type="text" placeholder="Nombre del
+                                                    producto" name="titulo" class="textBox-1" id="nombreDeProducto"
+                                    value="<%= producto.titulo%>" />
+                            </div>
+                            <div class="form-section">
+                                <input type="texto" name="category" value="<%=
+                                                    producto.categoria %>" style="display: none;" />
+                                <textarea id="descripcion" name="descripcion" placeholder="descripcion"><%=
+                                                        producto.descripcion %></textarea>
+                            </div>
+                            <div class="form-section" id="precio-img">
+                                <input type="number" id="precio" name="precio" placeholder="Precio" value="<%=
+                                                        producto.precio %>" />
+                                <button class="agregarImg"><input type="file" name="img" value="
+                                                        <%= producto.img %>"></button>
+                            </div>
+                            <div class="form-section" id="color">
+                                <span>Color</span>
+                                <select name="color">
+                                    <option value="">Elegir
+                                        color</option>
+                                    <option value="rojo" <%=producto.color=="rojo" ? "selected" : "" %>>Rojo</option>
+                                    <option value="azul" <%=producto.color=="azul" ? "selected" : "" %>>Azul</option>
+                                    <option value="verde" <%=producto.color=="verde" ? "selected" : "" %>>Verde</option>
+                                </select>
+                                <span>Subcategoria:</span>
+                                <select name="subcategoria" required">
+                                    <option value=""></option>
+                                    <option value="1" <%=producto.subcategoria=="1" ? "selected" : "" %>>Mesa</option>
+                                    <option value="2" <%=producto.subcategoria=="2" ? "selected" : "" %>>Camas</option>
+                                    <option value="3" <%=producto.subcategoria=="3" ? "selected" : "" %>>Escritorios
+                                    </option>
+                                    <option value="4" <%=producto.subcategoria=="4" ? "selected" : "" %>>Sillon</option>
+                                    <option value="5" <%=producto.subcategoria=="5" ? "selected" : "" %>>Microondas
+                                    </option>
+                                    <option value="6" <%=producto.subcategoria=="6" ? "selected" : "" %>>Televisores
+                                    </option>
+                                    <option value="7" <%=producto.subcategoria=="7" ? "selected" : "" %>>Lavarropas
+                                    </option>
+                                    <option value="8" <%=producto.subcategoria=="8" ? "selected" : "" %>>Cafeteras
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-section">
+                                <button type="submit" class="agregar">Agregar
+                                    producto</button>
+                                <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="cuadroNegro" id="negro"></div>
+                </div>
+                <div class="derecha">
+                    <img src="/images/<%= producto.img %>" />
+                </div>
+            </div>
+            <div class="slider">
+                <!-- Slider productos recomendados -->
+                <%- include('./partials/productRecom',{inSale})%>
+            </div>
+        </div>
+
+        <%- include('./partials/footer')%>
+
+            <script>
+                function mostrarPopup() {
+                    document.getElementById("edit").style.display = "flex";
+                    document.getElementById("negro").style.display = "block";
+                }
+                function cancel() {
+                    document.getElementById("edit").style.display = "none";
+                    document.getElementById("negro").style.display = "none";
+                }
+            </script>
+</body>
+
+</html>

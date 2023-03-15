@@ -1,0 +1,129 @@
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+*{
+    font-family: "Nunito";
+}
+
+a{
+    display:contents;
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+.contenido{
+    display : flex;
+    flex-direction: column;
+    }
+    .infoproducto{
+        display: flex;
+        flex-direction: row;
+        margin: 20px 35px 0px 35px;
+    
+    }
+   .infoproducto .derecha{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+width: 50vw;
+    }
+  .infoproducto  .izquierda{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 15px;
+        width: 50vw;
+        box-shadow: -1px -1px 14px 1px rgb(0 0 0 / 75%);
+        border-radius: 15px;
+
+    }
+    .izquierda .botom{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 5px;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        width: 200px;
+        height: 30px;
+        transition: background-color 0.5s;
+    }
+    .form-delete .delete{
+        background-color: rgb(250, 86, 86);
+    }
+    .delet .editar{
+        background-color: rgb(251, 224, 72);
+    }
+    .izquierda .botom:hover{
+        background-color: #738496;
+        cursor: pointer;
+        
+    }
+    .izquierda .botones{
+        display: flex;
+        flex-direction: column;
+        height: 19vh;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    span{
+        -webkit-user-select: none;
+    }
+
+    .marginbottom{
+        margin-bottom: 4vh;
+    }
+
+    .derecha img{
+        width: 450px;
+    }
+
+    .descripcion p{
+        font-family: "Nunito";
+        font-size: 18px;
+        padding: 20px;
+        border-top: 1px solid;
+    }
+
+
+    .formulario-create{
+        width: 50vw !important;
+        height: 60vh !important;
+    }
+
+    @media (max-width: 769px){
+
+        .infoproducto{
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+        .izquierda{
+            width: 80vw;
+        }
+        .descripcion .marginbottom{
+            text-align: center;
+        }
+
+    }
+    @media (max-width: 425px){
+
+
+        .derecha img{
+            width: 90vw;
+        }
+        .descripcion p{
+            font-size: 15px;
+        }
+        .titulo h1{
+            font-size: 25px;
+        }
+    }

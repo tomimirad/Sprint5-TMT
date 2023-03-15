@@ -1,0 +1,38 @@
+[
+    {
+        "id": "1",
+        "nombre": "Thiago",
+        "apellido": "Pizarro",
+        "email": "gmail@gmail.com",
+        "contrasenia": "ThiagoPizarro",
+        "categoria": "admin",
+        "img": "img.jpg"
+    },
+    {
+        "id": "2",
+        "nombre": "Tomas",
+        "apellido": "Miranda",
+        "email": "tomas@gmail.com",
+        "contrasenia": "TomasMiranda",
+        "categoria": "user",
+        "img": "Tomi.jpg"
+    },
+    {
+        "id": "3",
+        "nombre": "Martina",
+        "apellido": "Pizarro",
+        "email": "Martina@gmail.com",
+        "contrasenia": "MartinaPizarro",
+        "categoria": "user",
+        "img": "Martu.jpg"
+    },
+    {
+        "id": "4",
+        "nombre": "Julian",
+        "apellido": "Barrionuevo",
+        "email": "Julian@gmail.com",
+        "contrasenia": "JulianBarrionuevo",
+        "categoria": "user",
+        "img": "Juli.jpg"
+    }
+]

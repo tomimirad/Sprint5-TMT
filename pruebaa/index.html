@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="product">
+        <a href="/producto/1">
+          <div class="img-prod arriba">
+            <img src="imagen-producto.jpg" alt="Producto 1">
+          </div>
+          <div class="abajo">
+            <p class="nombre texto">Nombre del producto</p>
+            <p class="cuotas">3 cuotas sin interés.</p>
+            <p class="precio texto">$89.99</p>
+            <div class="bot-carrito">
+              <a href="/productCart">
+                <span class="boton">Añadir al carrito</span>
+              </a>
+            </div>
+          </div>
+        </a>
+      </div>
+      
+      <script>
+        const product = document.querySelector('.product');
+
+// Agregar el precio original tachado y el descuento
+const precios = document.createElement('div');
+precios.classList.add('precios');
+
+const precioAntiguo = document.createElement('span');
+precioAntiguo.classList.add('precio-antiguo');
+precioAntiguo.innerHTML = '$99.99';
+precios.appendChild(precioAntiguo);
+
+const precioActual = product.querySelector('.precio');
+precios.appendChild(precioActual.cloneNode(true));
+
+const descuento = document.createElement('div');
+descuento.classList.add('descuento');
+descuento.innerHTML = '20% de descuento';
+
+precioActual.parentNode.insertBefore(precios, precioActual.nextSibling);
+
+product.querySelector('.abajo').appendChild(descuento);
+
+      </script>
+
+</body>
+</html>

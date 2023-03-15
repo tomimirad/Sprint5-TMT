@@ -1,0 +1,80 @@
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+
+*{
+    font-family: "Nunito";
+}
+
+body{
+    margin: 0;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: rgb(115,132,150);
+    background: linear-gradient(218deg, rgba(115,132,150,1) 14%, rgba(180,196,219,1) 94%);
+    width: 100%;
+    height: 220px;
+}    
+
+.footer a{
+    text-decoration: none;
+    color: black;
+}
+
+.footer .arribaF{
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer .productos, 
+.footer .contacto, 
+.footer .redes{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer .contenidoF{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.footer .contenidoF div{
+    display: flex;
+    flex-direction: row;
+}
+
+.footer .contenidoF span{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 4px;
+}
+
+.footer .abajoF{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer .abajoF .tarjetas img{
+    margin: 10px 20px;
+    height: 30px;
+}
+
+.footer .abajoF .copyright{
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid;
+    padding: 5px;
+}

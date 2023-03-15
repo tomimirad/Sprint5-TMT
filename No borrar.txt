@@ -1,0 +1,107 @@
+
+const listadoProductos = [
+    {
+        id: 1,
+        titulo: 'Microondas smart',
+        descripcion: 'Capacidad 28L. Con Grill. Pantalla digital LED. Potencia 900W. Interior ceramico. 6 Niveles de coccion. Descongelado rapido. 3 Menues de coccion automatica. Plato giratorio de vidrio de 31.8cm de diametro. Traba de seguridad. Color Silver.',
+        precio: '8.000',
+        img: 'micro2.jpg'
+    },
+    {
+        id: 2,
+        titulo: 'Sillon de dos cuerpos',
+        descripcion: 'Sillon 2 cuerpos',
+        precio: '35.000',
+        img: 'sillon2.jpg'
+    },
+    {
+        id: 3,
+        titulo: 'TV LG 16k USB 1.0',
+        descripcion: 'El distintivo cuerpo metálico muestra líneas puras y curvas. LG UHD TV muestra elegancia que sorprende. - Nuevo sistema de audio envolvente de LG con hasta 7 canales para mejor inmersión. - Ultra Luminance y Local Dimming aumentan el brillo y mejoran el detalle al ajustar la luz posterior y dividir la imagen en bloques de contraste independiente. - El Efecto HDR de LG usa un proceso de imagen que transforma el contenido normal a calidad HDR aumentando el contraste. - LG UHD TV permite reproducir contenido premium HDR perfeccionado por Dolby Vision. También es compatible con HDR10 y HLG. La tecnología exclusiva de LG de Active HDR permite optimizar la calidad de imagen cuadro por cuadro. - LG Magic Remote te permite controlar tu televisor de forma rápida, simple e incluso con tu propia voz. Gracias al puntero incorporado, podrás acceder a las aplicaciones con tan sólo apuntar y cliquear. Y para no perder ningún detalle, presiona la lupa de tu Magic Remote y has Zoom en vivo al contenido que estás viendo.',
+        precio: '100.000.000',
+        img: 'pantallaPlana.jpg'
+    }
+]
+
+const mainController = {
+    home: (req, res) => {
+        let productos = listadoProductos;
+        res.render("home", { productos : productos  });
+    },
+    producto: (req, res) => {
+        let productos = listadoProductos;
+        let producto = listadoProductos.find(producto => producto.id == req.params.productoId);
+        res.render("productDetail", { producto : producto , productos : productos});
+    },
+    cart: (req, res) => {
+        let productos = listadoProductos;
+        res.render("productCart", { productos : productos });
+    },
+    login: (req, res) => {
+        res.render("login", {  });
+    },
+    register: (req, res) => {
+        res.render("register", {  });
+    },
+    productRecom: (req, res) => {
+        let productos = listadoProductos;
+        res.render("productCart", { productos : productos });
+    },
+    producList: (req, res) => {
+        let productos = listadoProductos;
+        res.render("productList", { productos : productos });
+    },
+    create:(req,res)=>{
+        let productos = listadoProductos;
+        res.render("create",{productos: productos})
+    }
+};
+
+module.exports = mainController;
+
+
+
+
+
+const express = require('express');
+
+const app = express();
+
+const path = require('path');
+
+const port = 3030;
+
+
+
+app.set('view engine', 'ejs');
+
+app.set('views',path.join('views'))
+
+app.use(express.static('public'));
+
+const indexRouter = require('./routes/index')
+
+const usersRouter = require('./routes/users')
+
+app.use('/', indexRouter);
+app.use('/', usersRouter);
+
+
+app.get('/header', (req, res) => { res.render('./partials/header')})
+app.get('/footer', (req, res) => { res.render('./partials/footer')})
+
+app.listen(port, () => console.log(`Servidor funcionando en el puerto ${port}!`));
+
+
+
+const express = require('express')
+const mainController = require('../controllers/mainController')
+const router = express.Router()
+
+router.get('/', mainController.home);
+router.get('/producto/:productoId', mainController.producto);
+router.get('/productcart', mainController.cart);
+router.get('/productList', mainController.producList);
+router.get("/create",mainController.create)
+
+module.exports = router;

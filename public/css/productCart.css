@@ -1,0 +1,232 @@
+body{
+  box-sizing: border-box;
+}
+
+
+
+.contenedor-cart{
+  display: flex;
+  flex-direction: column;
+}
+
+.tarjeta{
+  display: flex;
+    width: 60vw;
+    height: 160px;
+    background-color: white;
+    justify-content: space-between;
+    margin: 20px;
+    border-radius:20px; 
+    -moz-box-shadow: 0px -1px 14px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 14px 0px rgb(0 0 0 / 60%);
+}
+
+
+.detalles .precio{
+  font-size: 20px;
+}
+
+.tarjeta-izquierda{
+  display: flex;
+  padding: 1rem;
+}
+
+.imagenProducto{
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  width: 130px;
+}
+
+
+.tarjeta img{
+    width: 100%;
+}
+.derecha img{
+  width: 100%;
+}
+.detalles{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.detalles p{
+  margin: 0;
+  font-size: 25px;
+}
+
+.detalles button{
+  border: solid 2px;
+    color: white;
+    background-color: black;
+    height: 5vh;
+    width: 5vw;
+}
+
+.tarjeta-derecha{
+  display: flex;
+  align-items: center;
+  width: 10vw;
+    justify-content: center;
+}
+
+.tarjeta-derecha span{
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+.arriba{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.abajo{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.abajo button{
+  color: white;
+    background-color: black;
+    height: 40px;
+    border-radius: 10px;
+    padding: 6px;
+}
+
+
+ button:hover{
+  background-color: #738496;
+  transition: 0.3s;
+}
+.cantida-producto{
+  margin: 10px;
+  width: 20px;
+  border: solid 2px;
+    text-align: center;
+}
+
+
+.derecha{
+  display: flex;
+    width: 180px;
+    height: 640px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.logo{
+  display: flex;
+}
+
+.derecha-abajo{
+  background-color: white;
+  margin-bottom:10px ;
+    border-radius: 40px;
+    padding: 1rem;
+    height: 300px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.derecha-abajo p{
+  font-size: 19px;
+}
+
+.derecha-abajo button{
+    color: white;
+    background-color: black;
+    height: 38px;
+}
+
+.derecha-abajo button:hover{
+    background-color: #738496;
+    transition: 0.3s;
+}
+
+.derecha .boton{
+  border-top: solid 1px;
+  padding: 6px;
+}
+
+button{
+  cursor: pointer;
+}
+
+
+@media (max-width: 769px) {
+
+
+  .derecha{
+    width: 90vw;
+    height: 30vh;
+  }
+  .tarjeta{
+    width: 90vw;
+  }
+  .derecha-arriba{
+    display: none;
+  }
+  .arriba{
+    flex-direction: column;
+  }
+
+  .derecha .derecha-abajo{
+    width:85vw ;
+  }
+
+  .derecha-abajo p{
+    font-size: 30px;
+  }
+
+  .derecha-abajo button{
+    height: 6vh;
+    width: 50vw;
+  }
+  .derecha-abajo .boton{
+    border:none
+  }
+
+  .abajo{
+    justify-content: flex-start;
+    margin: 0px 0px 20px 10px;
+  }
+  .detalles button{
+    width: 10vw;
+    height: 4vh;
+  }
+
+  .tarjeta-derecha{
+    width: 20vw;
+  }
+}
+
+@media (max-width:425px){
+  .detalles button{
+    width: 15vw;
+    height: 3vh;
+  }
+  
+  .detalles p{
+    font-size: 20px;
+  }
+
+  .tarjeta-derecha{
+    width: 25vw;
+  }
+
+  .tarjeta{
+    width: 95vw;
+  }
+}

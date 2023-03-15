@@ -1,0 +1,174 @@
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.produc-recom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.263);
+    height: 420px;
+    margin: 30px;
+    border: 1px solid black;
+    border-radius: 34px;
+}
+
+.flecha{
+    margin: 10px;
+}
+
+.product{
+    position: relative;
+    width: 300px;
+    height: 373px;
+    background-color: #dcdcdc;
+    margin: 10px 0px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.arriba{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+}
+
+.img-prod.arriba {
+    height: 225px
+}
+
+.img-prod img{
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    margin: auto;
+}
+
+.abajo{
+    background-color: #ffffff;
+    margin: 4px;
+}
+
+.descrip-prod{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.descrip-prod p{
+    margin: 0;
+}
+
+.descrip-prod .texto{
+    font-size: 23px;
+}
+
+.descrip-prod .cuotas{
+    font-size: 10px;
+}
+
+.descrip-prod .disc{
+    position: absolute;
+    top: 200px;
+    right: 12px;
+    font-size: 20px;
+    color: #1cb521;
+}
+
+.abajo .bot-carrito{
+    display: flex;
+    justify-content: center;
+}
+
+.abajo .bot-carrito .boton{
+    border-radius: 10px;
+    background-color: #b4c4db;
+    padding: 5px;
+    margin: 8px;
+    font-size: 15px;
+    transition: background-color 500ms;
+}
+
+.abajo .bot-carrito .boton:hover{
+    background-color: #8998ab;
+}
+
+
+@media (max-width:769px) {
+    .produc-recom{
+        height: 307px;
+    }
+    .produc-recom .flecha img{
+        width: 30px;
+    }
+    .product{
+        width: 182px;
+        height: 257px;
+    }
+    .img-prod img{
+        height: 126px;
+        width: 126px;
+    }
+    .descrip-prod .texto{
+        font-size: 17px;
+    }
+    .descrip-prod .cuotas{
+        font-size: 10px;
+    }
+    .descrip-prod .disc{
+        top: 4px;
+        right: 7px;
+        font-size: 15px;
+    }
+    .abajo .bot-carrito .boton{
+        padding: 6px;
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 560px) {
+    .titulo{
+        font-size: 20px;
+        text-align: center;
+    }
+    .produc-recom{
+        height: 231px;
+        margin: 5px;
+    }
+    .produc-recom .flecha{
+        margin: -5px;
+    }
+    .produc-recom .flecha img{
+        width: 19px ;
+    }
+    .product{
+        width: 124px;
+        height: 204px;
+    }
+    .img-prod img{
+        height: 100px;
+        width: 100px;
+    }
+    .descrip-prod .texto{
+        font-size: 10px;
+    }
+    .descrip-prod .cuotas{
+        font-size: 8px;
+    }
+    .descrip-prod .disc{
+        top: 4px;
+        right: 7px;
+        font-size: 13px;
+    }
+    .abajo .bot-carrito .boton{
+        padding: 6px;
+        font-size: 10px;
+    }
+}

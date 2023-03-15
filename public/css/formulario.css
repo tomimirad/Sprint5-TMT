@@ -1,0 +1,179 @@
+html{
+  margin: auto;
+  padding: 0;
+  
+}
+
+*{
+  font-family: sans-serif;
+  padding: 0px;
+}
+
+
+h1{
+  text-align: center;
+}
+
+.contenedor{
+  display: flex;
+  justify-content: center;
+}
+
+.formularioLogin input:focus{
+  outline: none;
+}
+
+.formularioRegister input:focus{
+  outline: none;
+}
+.formularioLogin input{
+    border: 0;
+    border-bottom: solid 2px;
+    background-color: transparent;
+}
+
+.formularioRegister input{
+  border: 0;
+    border-bottom: solid 2px;
+    background-color: transparent;
+}
+
+
+.formularioRegister{
+  display: flex;
+  padding: 2rem;
+  margin: 30px;
+  width: 30%;
+  flex-direction: column;
+  border: solid black 3px;
+  background-color: white;
+}
+
+.formularioRegister .izquierda{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.formularioRegister .derecha{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+.formularioLogin{
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+  border: solid 2px;
+  background-color: white;
+  width: 36vw;
+  margin: 50px;
+}
+
+.formularioLogin .izquierda{
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  flex-direction: column;
+}
+
+.formularioLogin .derecha{
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+  align-items: flex-end;
+}
+
+.arriba{
+text-align: center;
+}
+.abajo{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+
+.register-abajo{
+  display: flex;
+  justify-content: center;
+}
+.register-abajo button{
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.medio{
+  display: flex;
+  justify-content: space-around;
+  height: 24vh;
+}
+
+.formularioRegister button{
+  width: 90px;
+  height: 30px;
+  cursor: pointer;
+  padding: 0px;
+  margin: 10px;
+}
+
+.formularioLogin button{
+  justify-content: center;
+    padding: 0px;
+    align-items: center;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+    margin-bottom: 28px;
+}
+
+
+  .derecha button{
+  display: flex;
+  padding-left: 7px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+} 
+
+.derecha img{
+  width: 120px;
+  height: 120px;
+}
+
+
+@media (max-width:768px){
+  .formularioRegister{
+    width: 70%;
+    margin-top: 150px;
+  }
+
+  .formularioLogin{
+    width: 80vw;
+  }
+}
+
+@media (max-width:425px){
+  .formularioRegister{
+    width: 140%;
+    padding: 0rem;
+    margin-top: 150px;
+  }
+
+  .medio{
+    width: 98vw;
+  }
+
+  .formularioLogin{
+    width: 80vw;
+  }
+}
+

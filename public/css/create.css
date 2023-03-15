@@ -1,0 +1,257 @@
+.contenedor-create{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.formulario-create{
+  display: flex;
+  width: 55vw;
+  height: 50vh;
+  box-shadow: 3px 1px 16px 1px rgba(0,0,0,0.75);
+  margin-bottom: 40px;
+    /* position: absolute;
+    z-index: 10;
+    background-color: white;
+    top: 50%;
+    left: 30%;
+    display: none; */
+}
+
+.formulario-edit{
+  display: flex;
+  width: 55vw;
+  height: 50vh;
+  box-shadow: 3px 1px 16px 1px rgba(0,0,0,0.75);
+  margin-bottom: 40px;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    top: 50%;
+    left: 30%;
+    display: none;
+}
+
+.form-create{
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-evenly;
+}
+
+
+textarea{
+  width: 200px;
+  max-width: 200px;
+  max-height: 100px;
+}
+
+
+
+
+/* .textBox-1::placeholder{
+  color: transparent;
+}
+.textBox-1:placeholder-shown.textBox-label-1{
+  font-size: 15px;
+  cursor: text;
+  top: 19px;
+}
+
+.textBox-1{
+  width: 275px;
+  height: 30px;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 15px;
+  padding: 2px 0;
+  transition: border-color 0.2s;
+    border: 0;
+    border-bottom: solid 2px;
+    background-color: transparent;
+}
+
+.textBox-label-1{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 14px;
+  color: #9b9b9b;
+}
+
+.textBox-1:focus{
+  border-width: 2px;
+  border-image: linear-gradient(to right,#11998e, #38ef7d, );
+  border-image-slice:1;
+}
+
+.textBox-1:focus .textBox-label-1{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 14px;
+  color:#11998e;
+  font-weight: 700;
+} */
+
+
+.izquierda-create{
+  flex: 2;
+  background-color: #a1b4c7;
+  border-top-right-radius: 40%;
+  border-bottom-right-radius: 40%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.izquierda-create span{
+  margin-right: 10px;
+  text-align: center;
+}
+
+
+
+.izquierda-create img{
+  width: 100%;
+  height: 100%;
+}
+
+.derecha-create{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 3;
+  margin: 15px;
+}
+
+.derecha-create .form-section input{
+  width: 275px;
+  height: 30px;
+  border: 0;
+  border-bottom: solid 1px;
+}
+
+
+.derecha-create #precio-img input{
+  width: 30%;
+  margin-right:30px ;
+}
+.derecha-create #precio-img{
+  display: flex;
+}
+
+.derecha-create span{
+  font-size: 20px;
+}
+
+
+.form-section button,.form-section span{
+  width: 130px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-section{
+  padding: 15px 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.form-section .agregar{
+  background-color:#08d55c;
+  margin-right: 30px;
+  height: 45px;
+  color: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 3px 1px 16px 1px rgba(0,0,0,0.25)
+
+}
+
+.form-section .agregarImg{
+  background-color: #a1b4c7;
+    border-radius: 12px;
+    border: none;
+}
+
+
+.colores{
+  display: flex;
+}
+.form-create span{
+  border-radius: 50%;
+  background-color: red;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+select{
+  margin-right: 20px;
+  width: 70px;
+}
+
+.derecha-create .titulo{
+  text-align: center;
+  font-size: 34px;
+}
+
+.botones-form{
+  display: flex;
+  justify-content: space-around;
+}
+
+.botones-form button{
+  width: 120px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #B4C5DB;
+  border: 0;
+  margin-right:60px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+
+
+.cuadroNegro{
+  width: 200vw;
+  height: 200vh;
+  background-color: #000000a8;
+  position: absolute;
+  z-index: 5;
+  display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+  .formulario-create {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+  .contenedor-create {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+
+   .botones-form{
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .botones-form button{
+    margin-bottom: 20px;
+  }
+
+  
+}
+
+

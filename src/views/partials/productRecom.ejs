@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/productRecomStyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="recom">
+        <div class="encabezado">
+            <p class="titulo">Recomendaciones</p>
+        </div>
+        <div class="produc-recom">
+            <div class="flecha">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQpJREFUaEPt2FEOwjAMA9DspMDN4CbcjCnSkPrBaLvYjiplX3x0wy8u6sRmi1/b4vmtANkNVgPVQHACtYWCAwzfXg1MjvBpZh8ze0zed7pc2YCHvx1J/DMEoQK04b/ThCAUgF/hYQg24F94R7zM7B75PTAB9PAOZwEk4VkAWXgGQBoeDZCHRwJSwqMAaeERgNTwUUB6eDYA8q7TO6WjB1mvBToiCvABpSIQgFQECpCGQAJSEGiAHMEASBEsgAzBBEgQbEAP4X+t+Dly+VIAzhDh8NF3odmptSc2JLwa4N/3PrZMaNu0k1Ntodm2htcXYHhUpIXVAGmww4+tBoZHRVpYDZAGO/zY5RvYAQgIODGcFQF/AAAAAElFTkSuQmCC"/>
+            </div>
+
+            <% inSale.forEach(producto => { %>
+                <a href="/producto/<%= producto.id %>"><div class="product">
+                <div class="img-prod arriba">
+                    <img src="/images/<%= producto.img %>" alt="Microondas 1">
+                </div>
+                <div class="abajo">
+                    <div class="descrip-prod">
+                        <p class="nombre texto"><%=producto.titulo%></p>
+                        <p class="cuotas"> <%=producto.cuotas %> cuotas sin interés</p>
+                        <p class="precio texto">$<%=producto.precio %></p>
+                        <div class="disc">
+                            <p><%=producto.descuento %>%</p>
+                        </div>
+                    </div>
+                    <div class="bot-carrito">
+                        <a href="/productCart"><span class="boton">Añadir al carrito</span></a>
+                    </div>
+                </div>
+            </div></a>
+            <% }); %>
+            <!-- <a href="/producto/1"><div class="product">
+                <div class="img-prod arriba">
+                    <img src="/images/micro2.jpg" alt="Microondas 1">
+                </div>
+                <div class="abajo">
+                    <div class="descrip-prod">
+                        <p class="nombre texto">Microondas smart</p>
+                        <p class="cuotas">6 CUOTAS SIN INTERÉS</p>
+                        <p class="precio texto">$8.000</p>
+                        <div class="disc">
+                            <p>80% OFF</p>
+                        </div>
+                    </div>
+                    <div class="bot-carrito">
+                        <a href="/productCart"><span class="boton">Añadir al carrito</span></a>
+                    </div>
+                </div>
+            </div></a>
+            <a href="/producto/2"><div class="product">
+                <div class="img-prod arriba">
+                    <img src="/images/sillon2.jpg" alt="Sillon Gris">
+                </div>
+                <div class="abajo">
+                    <div class="descrip-prod">
+                        <p class="nombre texto">Sillón dos cuerpos</p>
+                        <p class="cuotas">6 CUOTAS SIN INTERÉS</p>
+                        <p class="precio texto">$35.000</p>
+                        <div class="disc">
+                            <p>15% OFF</p>
+                        </div>
+                    </div>
+                    <div class="bot-carrito">
+                        <a href="/productCart"><span class="boton">Añadir al carrito</span></a>
+                    </div>
+                </div>
+            </div></a>
+            <a href="/producto/3"><div class="product">
+                <div class="img-prod arriba">
+                    <img src="/images/pantallaPlana.jpg" alt="Televisor LG">
+                </div>
+                <div class="abajo">
+                    <div class="descrip-prod">
+                        <p class="nombre texto">TV LG 16k USB 1.0</p>
+                        <p class="cuotas">6 CUOTAS SIN INTERÉS</p>
+                        <p class="precio texto">$100.000.000</p>
+                        <div class="disc">
+                            <p>90% OFF</p>
+                        </div>
+                    </div>
+                    <div class="bot-carrito">
+                        <a href="/productCart"><span class="boton">Añadir al carrito</span></a>
+                    </div>
+                </div>
+            </div></a> -->
+            <div class="flecha">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAASpJREFUaEPtlt0NwjAMhK8bMAojsAkwGTABIzAayBKRShWq/Nw5reQ+9SFx7ruzlUzY+TftXD8CYHSCkUAk0OlAtFCngd3bI4GFhXcAbwDXbmsLCzATMPHn77n27wLBApiLT965QDAAcuLdINQABiJNggGQRKb+z42fDIIFMAyCCTAEgg3gDqEAcIVQAbhBKAFcINQAcggPACnEVgAeAC6FD9CfZR4Aa28lE9Ms3jarAaTi1QBy8UoAF/EKgAOAJ4DTykB29fyyLnMGTPwLwNFLPDOBIeJZAMPEMwCGimcAWA27QW9/+p46sLkzWEOcg5CLZyWQjJlDuIhnA6R2sjug6WG21cdci67iPawZKD6QvTAA2I7W1osEah1jr48E2I7W1osEah1jr/8A1Lw3McKUuUMAAAAASUVORK5CYII="/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

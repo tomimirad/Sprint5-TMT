@@ -1,0 +1,176 @@
+@font-face {
+    font-family: Nunito;
+    src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+
+*{
+    font-family: "Nunito";
+}
+
+.dd-content .minidd span{
+    width: 143px !important; 
+}
+
+body{
+    position: relative;
+    background-image: url(../images/architecture-building-design-house-wallpaper-preview.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin: 0;
+    flex: 1;
+}
+
+.home{
+    margin: 0 20px 20px 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.368);
+}
+
+a{
+    display:contents;
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover{
+    text-decoration: none;
+    color: #000000;
+}
+
+.encabezado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    font-size: 30px;
+}
+
+.categorias{
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias-master{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.categorias-master img {
+    width: 450px;
+    margin: 40px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.75);
+    transition: width 0.5s;
+}
+
+.categoriaImg img:hover {
+    width: 470px;
+}
+
+.subcategorias{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    
+}
+
+.subcategorias img{
+    width: 220px;
+    margin: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.75);
+    transition: width 0.5s;
+}
+
+
+.subC{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sponsors{
+    width: 100%;
+    overflow: hidden;
+}
+
+.sponsors img{
+    animation: sponsorsMov 30s infinite;
+}
+
+@keyframes sponsorsMov{
+    50% { transform: translateX(-1350px);}
+}
+
+@media (max-width: 1024px) {
+    .categorias-master{
+        flex-direction: column;
+        align-items: center;
+    }
+    .subC{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+    .categorias-master img{
+        width: 420px;
+        margin: 20px
+    }
+}
+
+@media (max-width: 560px) {
+    .titulo{
+        font-size: 20px;
+        text-align: center;
+    }
+    .categorias-master img{
+        width: 250px;
+        margin: 20px;
+    }
+    .subcategorias img {
+        width: 133px;
+        margin: 9px 27px;
+    }
+    .sponsors img{
+        height: 80px;
+        animation: sponsorsMov2 30s infinite;
+    }
+    @keyframes sponsorsMov2{
+        50% { transform: translateX(-1070px);}
+    }
+    .produc-recom{
+        height: 231px;
+        margin: 5px;
+    }
+    .produc-recom .flecha{
+        margin: -5px;
+    }
+    .produc-recom .flecha img{
+        width: 19px ;
+    }
+    .product{
+        width: 124px;
+        height: 204px;
+    }
+    .img-prod img{
+        height: 100px;
+        width: 100px;
+    }
+    .descrip-prod .texto{
+        font-size: 10px;
+    }
+    .descrip-prod .cuotas{
+        font-size: 8px;
+    }
+    .descrip-prod .disc{
+        top: 4px;
+        right: 7px;
+        font-size: 13px;
+    }
+    .abajo .bot-carrito .boton{
+        padding: 6px;
+        font-size: 10px;
+    }
+}

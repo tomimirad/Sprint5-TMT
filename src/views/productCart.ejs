@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/productCart.css" />
+    <link rel="stylesheet" href="css/homestyle.css">
+    <title>Carrito</title>
+  </head>
+
+  <body>
+       
+    <%- include('./partials/header')%>
+
+    <div class="contenedor-cart">
+      <div class="arriba">
+        <div class="izquierda">
+          <div class="tarjeta">
+            <div class="tarjeta-izquierda">
+              <div class="imagenProducto">
+                <img src="images/<%= productos[0].img %>" />
+              </div>
+              <div class="detalles">
+                <p><%= productos[0].titulo %></p>
+                <p class="precio">$<%=toThousand(productos[0].precio) %></p>
+                <button type="reset">Eliminar</button>
+              </div>
+            </div>
+            <div class="tarjeta-derecha">
+                <span>-</span>
+                <div class="cantida-producto">1</div>
+                <span>+</span>
+              </div>
+            </div>
+          <div class="tarjeta">
+            <div class="tarjeta-izquierda">
+              <div class="imagenProducto">
+                <img src="images/<%= productos[1].img %>" />
+              </div>
+              <div class="detalles">
+                <p><%= productos[1].titulo %></p>
+                <p class="precio">$<%=toThousand(productos[1].precio) %></p>
+                <button type="reset">Eliminar</button>
+              </div>
+            </div>
+            <div class="tarjeta-derecha">
+              <span>-</span>
+              <div class="cantida-producto">1</div>
+              <span>+</span>
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjeta-izquierda">
+              <div class="imagenProducto">
+                <img src="images/<%= productos[2].img %>" />
+              </div>
+              <div class="detalles">
+                <p><%= productos[2].titulo %></p>
+                <p class="precio">$<%=toThousand(productos[2].precio) %></p>
+                <button type="reset">Eliminar</button>
+              </div>
+            </div>
+            <div class="tarjeta-derecha">
+              <span>-</span>
+              <div class="cantida-producto">1</div>
+              <span>+</span>
+            </div>
+          </div>
+        </div>
+        <div class="derecha">
+          <div class="derecha-arriba">
+            <div class="logo">
+              <img src="images/logo.png" />
+            </div>
+          </div>
+          <div class="derecha-abajo">
+            <% let precioTotal = parseInt(productos[0].precio) + parseInt(productos[1].precio) + parseInt(productos[2].precio) %>
+            <p>Precio lista: $<%=toThousand(precioTotal)%></p>
+            <% let descuentoTotal = (parseInt(productos[0].descuento) + parseInt(productos[1].descuento) + parseInt(productos[2].descuento))* precioTotal / 100 %>
+            <p>Descuentos: $<%= toThousand(descuentoTotal) %> </p>
+            <p>Total: $<%= toThousand( precioTotal - descuentoTotal) %></p>
+            <div class="boton">
+              <button type="submit">Realizar compra</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="abajo">
+      <div class="boton">
+        <button>Seguir comprando</button>
+      </div>
+    </div>
+      <div class="sponsors">
+        <img src="/images/Diseño sin título.png" alt="sponsors">
+    </div>
+
+    <%- include('./partials/footer')%>
+  </body>
+</html>
