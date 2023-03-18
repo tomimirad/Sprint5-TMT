@@ -33,4 +33,4 @@ app.use('/', usersRouter);
 const port = 3000
 
 
-app.listen(port, () => console.log(`aplicación funcionando http://localhost:${port}`))
+app.listen(port, () => console.log(`aplicación funcionando ${port}!`))
