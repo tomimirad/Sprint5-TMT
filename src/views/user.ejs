@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/userStyle.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <%- include("./partials/header.ejs") %>
+
+    <div class="card">
+        <div class="basic-info">
+            <div class="profile">
+                <img src="/images/usersProfile/<%=usuarios[1].img%>">
+            </div>
+            <div class="categoriaUs"><%=usuarios[1].categoria%></div>
+            <p class="nombreU"><%=usuarios[1].nombre%> <%=usuarios[1].apellido%></p> 
+            <p class="emailU"><u>Correo:</u> <%=usuarios[1].email%></p>
+            <p class="Ubicacion">Ushuaia, Tierra del Fuego, Argentina</p>
+            <div class="acercaDe">
+                <p class="titulo">Acerca de</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima fuga expedita reprehenderit et numquam nam consequatur dolore, provident alias, veritatis possimus ipsa deleniti officia aut cupiditate cum tenetur vero rerum.</p>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer')%>
+
+</body>
+</html>

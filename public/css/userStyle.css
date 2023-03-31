@@ -1,0 +1,67 @@
+
+body{ 
+    font-family: 'Ubuntu', monospace;
+}
+
+.card{ 
+    margin: 0 50px 0 50px;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.basic-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #6e6e6e24;
+    padding: 40px;
+
+}
+
+.basic-info p{
+    margin: 8px;
+}
+
+.basic-info .nombreU{
+    font-size: 32px;
+}
+
+.basic-info .emailU{
+    font-size: 20px;
+}
+
+.basic-info .Ubicacion{
+    font-size: 12px;
+}
+
+.basic-info .categoriaUs {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #6e6e6e4f;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.basic-info .acercaDe p.titulo{
+    margin: 10px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.basic-info .acercaDe{
+    text-align: center;
+}
