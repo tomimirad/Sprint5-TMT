@@ -1,7 +1,7 @@
 
 const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
-const usersModel = jsonDB('users')
+
 
 const toThousand = n => {
     const parts = n.toString().split(".");
@@ -23,16 +23,6 @@ const mainController = {
     cart: (req, res) => {
         let productos = productModel.readFile();
         res.render("productCart", { productos : productos, toThousand});
-    },
-    login: (req, res) => {
-        res.render("login", {  });
-    },
-    register: (req, res) => {
-        res.render("register", {  });
-    },
-    profile:(req, res) => {
-        let usuarios = usersModel.readFile();
-        res.render('user', { usuarios : usuarios })
     },
     productRecom: (req, res) => {
         let productos = productModel.readFile();

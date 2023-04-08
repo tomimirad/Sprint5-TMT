@@ -12,24 +12,44 @@
     <%- include('./partials/header')%>
 
     <div class="contenedor">
-      <form class="formularioRegister">
+      <% if (locals && locals.errores) { %>
+        <div class="errors-formul">
+          <% for( let error in errores ) { %>
+            <p class="form-check-error">&bull; <%= errores[error].msg %></p>
+          <% } %>
+        </div>
+        <% } %>
+        <% if (locals.error && error.msg) { %>
+          <div class="errors-formul">
+            <p class="form-check-error">&bull; <%= error.msg %>.
+            Haga <a href="/login">click aquí</a> si desea ir a Ingresar</p>
+          </div>
+        <% } %>
+
+      <form class="formularioRegister" action="/register" method="POST">
         <h1>Crea tu cuenta</h1>
+
+        <!-- <div class="foto-perfil">
+          <img src="/images/notProfile.jpg" width="100" height="100px">
+          <label for="fotoPerfil">Subir imagen</label>
+          <input type="file" name="fotoPerfil" id="fotoPerfil"/>
+        </div> -->
         <div class="medio">
           <div class="izquierda">
             <label for="nombre">Nombre:</label>
-            <input type="text"  id="nombre" minlength="10" required/>
+            <input type="text"  id="nombre" name="nombre" value="<%= locals.old && old.nombre ? old.nombre : '' %>"/>
             <label for="email">Email:</label>
-            <input type="email"  id="email" required/>
+            <input type="email"  id="email" name="email"  value="<%= locals.old && old.email ? old.email : '' %>"/>
             <label for="contraseña">Contraseña</label>
-            <input type="password" id="contraseña" required/>
+            <input type="password" id="contraseña" name="contrasena" />
           </div>
           <div class="derecha">
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" minlength="10" required/>
+            <input type="text" id="apellido" name="apellido" value="<%= locals.old && old.apellido ? old.apellido : '' %>"/>
             <label for="telefono">Telefono:</label>
-            <input type="text" id="telefono" required/>
-            <label for="confirmar">Confirmar contraseña</label>
-            <input type="password" id="confirmar" required/>
+            <input type="text" id="telefono" name='telefono' value="<%= locals.old && old.telefono ? old.telefono : '' %>"/>
+            <label for="fotoPerfil">Subir imagen</label>
+          <input type="file" name="img" id="img"/>
           </div>
         </div>
         <div class="register-abajo">

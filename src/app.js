@@ -1,23 +1,26 @@
-// ************ Require's ************
+//! ************ Requires ************
 
 const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+const session = require('express-session');
 
 
-// ************ Middlewares - (don't touch) ************
-//app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
+//! ************ Middlewares************
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(session({secret: 'Mensaje secreto.'}));
+
 app.use(express.json());
 
-app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+app.use(methodOverride('_method'));
 
-// ************ Template Engine - (don't touch) ************
+//! ************ Template Engine  ************
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
+app.set('views', path.join(__dirname, '/views'));
 
 
 

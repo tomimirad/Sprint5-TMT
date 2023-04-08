@@ -12,7 +12,14 @@
     <%- include('./partials/header')%>
 
     <div class="contenedor">
-      <form class="formularioLogin">
+      <% if (locals && locals.errores) { %>
+        <div class="errors-formul">
+          <% for( let error in errores ) { %>
+            <p class="form-check-error">&bull; <%= errores[error].msg %></p>
+          <% } %>
+        </div>
+      <% } %>
+      <form class="formularioLogin" action="/login" method="POST" >
         <div class="arriba">
           <h1>Iniciar sesión</h1>
         </div>
@@ -20,11 +27,11 @@
           <div class="izquierda">
             <label for="email">Email:</label>
             <br />
-            <input type="email" id="email" class="form_input" />
+            <input type="email" id="email" name="email" class="form_input" value="<%= locals.old && old.email ? old.email : '' %>"/>
             <br />
             <label for="contraseña">Contraseña:</label>
             <br />
-            <input type="password" id="contraseña" class="form_input" />
+            <input type="password" id="contraseña" name="contra" class="form_input" />
             <p>
               Si tiene problemas para acceder a su cuenta envienos su mensaje al
               mueblesTMT@gmail.com

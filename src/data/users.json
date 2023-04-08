@@ -1,38 +1,48 @@
 [
-    {
-        "id": "1",
-        "nombre": "Thiago",
-        "apellido": "Pizarro",
-        "email": "gmail@gmail.com",
-        "contrasenia": "ThiagoPizarro",
-        "categoria": "admin",
-        "img": "img.jpg"
-    },
-    {
-        "id": "2",
-        "nombre": "Tomas",
-        "apellido": "Miranda",
-        "email": "tomas@gmail.com",
-        "contrasenia": "TomasMiranda",
-        "categoria": "user",
-        "img": "Tomi.jpg"
-    },
-    {
-        "id": "3",
-        "nombre": "Martina",
-        "apellido": "Pizarro",
-        "email": "Martina@gmail.com",
-        "contrasenia": "MartinaPizarro",
-        "categoria": "user",
-        "img": "Martu.jpg"
-    },
-    {
-        "id": "4",
-        "nombre": "Julian",
-        "apellido": "Barrionuevo",
-        "email": "Julian@gmail.com",
-        "contrasenia": "JulianBarrionuevo",
-        "categoria": "user",
-        "img": "Juli.jpg"
-    }
+ {
+  "id": 1,
+  "nombre": "Thiago",
+  "apellido": "Pizarro",
+  "email": "gmail@gmail.com",
+  "contrasena": "ThiagoPizarro",
+  "categoria": "admin",
+  "img": "Thiago.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Tomas",
+  "apellido": "Miranda",
+  "email": "tomas@gmail.com",
+  "contrasena": "TomasMiranda",
+  "categoria": "user",
+  "img": "Tomi.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Martina",
+  "apellido": "Pizarro",
+  "email": "Martina@gmail.com",
+  "contrasena": "MartinaPizarro",
+  "categoria": "user",
+  "img": "Martu.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Julian",
+  "apellido": "Barrionuevo",
+  "email": "Julian@gmail.com",
+  "contrasena": "JulianBarrionuevo",
+  "categoria": "user",
+  "img": "Juli.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "bxngtannn_",
+  "email": "sdfaf@shuif.vom",
+  "contrasena": "sadfdasfd3453SSC_",
+  "apellido": "Solis",
+  "telefono": "2901493678",
+  "img": "notFound.png",
+  "categoria": "user"
+ }
 ]

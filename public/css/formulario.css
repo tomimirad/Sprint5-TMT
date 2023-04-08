@@ -17,7 +17,26 @@ h1{
 .contenedor{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
+
+.contenedor .errors-formul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: fit-content;
+  background-color: #f5c9c7 ;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.contenedor .errors-formul p.form-check-error{
+  color: rgb(0, 0, 0);
+}
+
 
 .formularioLogin input:focus{
   outline: none;
@@ -36,6 +55,8 @@ h1{
   border: 0;
     border-bottom: solid 2px;
     background-color: transparent;
+    padding: 5px;
+
 }
 
 
@@ -43,7 +64,7 @@ h1{
   display: flex;
   padding: 2rem;
   margin: 30px;
-  width: 30%;
+  width: 550px;
   flex-direction: column;
   border: solid black 3px;
   background-color: white;
@@ -149,6 +170,25 @@ text-align: center;
   height: 120px;
 }
 
+
+.foto-perfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.boton-img{
+  width: 26%;
+  height: 34%;
+  cursor: pointer;
+  background-color: black;
+  padding: 0px;
+  color: white;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
 
 @media (max-width:768px){
   .formularioRegister{
