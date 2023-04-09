@@ -31,8 +31,11 @@ const usersController = {
         } else {
             let UsuarioARegistrar = usersModel.buscarXtodo('email', req.body.email);
             if( UsuarioARegistrar == undefined){
-                let user = req.body;
-                userId = usersModel.crear(user)
+                const user = {
+                    ...req.body,
+                    img:req.file ?  req.file.filename  : 'imgDefault.png'
+                }
+                usersModel.crear(user)
                 res.redirect('/profile')
             } else {
                 res.render("register", { error: {msg:'Este usuario ya existe'}});

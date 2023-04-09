@@ -11,7 +11,6 @@ const storage =  multer.diskStorage({
      filename: function (req, file, cb) { 
         cb(null, `${entity}-img-${Date.now()}${path.extname(file.originalname)}`);  } 
 });
-console.log('Me llamaron!')
 return  multer({storage})
 
 }

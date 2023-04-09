@@ -29,8 +29,7 @@ const User = {
     let nuevoUser = {
         id: this.generarId(),
         ...userData,
-        categoria: 'user',
-        img:userData.img ?  userData.img : 'notFound.png'
+        categoria: 'user'
     }
     console.log(userData)
     allUser.push(nuevoUser);

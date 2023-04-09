@@ -4,9 +4,8 @@ const {check} = require('express-validator')
 
 
 const usersController = require ('../controllers/usersController')
-const multerMiddleware = require("../multer/multer")
+const multerMiddleware = require('../multer/multer')
 const uploadFile = multerMiddleware('images/usersProfile','user');
-
 
 //* Validaciones de Registro y Login 
 
@@ -50,13 +49,12 @@ const validacionesLogin = [
 
 router.get('/login', usersController.login);
 
-router.get('/register',
-uploadFile.single("img"), usersController.register);
+router.get('/register', usersController.register);
 
 router.get('/profile', usersController.profile)
 
 router.post('/login', validacionesLogin, usersController.procesoLogin)
 
-router.post('/register', validacionesRegistro, usersController.procesoRegister)
+router.post('/register', uploadFile.single('img'), validacionesRegistro, usersController.procesoRegister)
 
 module.exports = router;
