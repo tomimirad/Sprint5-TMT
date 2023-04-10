@@ -14,11 +14,13 @@ const usersController = {
             res.render("login", { errores:errores.mapped(), old: req.body });
         } else {
             let usuarioLogin = usersModel.buscarXtodo("email",req.body.email);
-        }if(!usuarioLogin){
-            res.render("login",{error:"el usuario no existe"})
-        }else{
-            res.redirect("/profile")
+            if(!usuarioLogin){
+                res.render("login",{error:"el usuario no existe"})
+            }else{
+                res.redirect("/profile")
+            }
         }
+       
     },
     register: (req, res) => {
         res.render("register", {  });
@@ -33,6 +35,7 @@ const usersController = {
             if( UsuarioARegistrar == undefined){
                 const user = {
                     ...req.body,
+                    contraseña:bcrypt.hashSync(req.body.contraseña,10),
                     img:req.file ?  req.file.filename  : 'imgDefault.png'
                 }
                 usersModel.crear(user)
