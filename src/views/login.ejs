@@ -18,7 +18,13 @@
             <p class="form-check-error">&bull; <%= errores[error].msg %></p>
           <% } %>
         </div>
-      <% } %>
+        <% } %>
+        <% if (locals.error && error.msg) { %>
+          <div class="errors-formul">
+            <p class="form-check-error">&bull; <%= error.msg %>.
+            <!-- Haga <a href="/register">click aquí</a> si desea ir a Registrarse</p> -->
+          </div>
+        <% } %>
       <form class="formularioLogin" action="/login" method="POST" >
         <div class="arriba">
           <h1>Iniciar sesión</h1>

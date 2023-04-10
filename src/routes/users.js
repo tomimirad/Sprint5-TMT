@@ -15,7 +15,7 @@ const validacionesRegistro = [
     check('apellido').notEmpty().withMessage('Ingrese un apellido').bail()
         .isLength({ min: 2, max: 20}).withMessage('Ingrese entre 2 y 20 carácteres'),
     check('telefono').notEmpty().withMessage('Ingrese un teléfono').bail()
-        .isLength({ min: 9, max:15}).isInt().withMessage('Ingrese un número de teléfono válido'),
+        .isLength({ min: 9, max:15}).withMessage('Ingrese un número de teléfono entre 9 y 15 carácteres').bail().isInt().withMessage('Ingrese un número de teléfono válido'),
     check('email').notEmpty().withMessage('Ingrese un Email.').bail()
         .isEmail().withMessage('Ingrese un Email valido'),
     check('contrasena').notEmpty().withMessage('Ingrese una contraseña').bail()

@@ -31,7 +31,6 @@ const User = {
         ...userData,
         categoria: 'user'
     }
-    console.log(userData)
     allUser.push(nuevoUser);
     fs.writeFileSync(this.fileName, JSON.stringify(allUser, null, " "));
     return true;
