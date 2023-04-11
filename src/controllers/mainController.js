@@ -33,8 +33,13 @@ const mainController = {
         res.render("productList", { productos : productos, toThousand });
     },
     create:(req,res)=>{
-        let productos = productModel.readFile();
-        res.render("create",{productos: productos})
+        if (req.session.usuario) {
+            let productos = productModel.readFile();
+            res.render("create",{productos: productos})
+        } else {
+            res.send('No tiene permitido acceder a crear producto')
+        }
+        
     }
 }
 
