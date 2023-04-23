@@ -65,6 +65,10 @@ const usersController = {
         } else {
             res.send('No tiene permitido ingresar')
         }
+    },
+    cerrarSesion: function(req, res){
+        req.session.destroy()
+        res.redirect('/')
     }
 }
 

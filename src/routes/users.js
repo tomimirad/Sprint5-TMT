@@ -53,6 +53,8 @@ router.get('/register', usersController.register);
 
 router.get('/profile', usersController.profile)
 
+router.get('/logout', usersController.cerrarSesion)
+
 router.post('/login', validacionesLogin, usersController.procesoLogin)
 
 router.post('/register', uploadFile.single('img'), validacionesRegistro, usersController.procesoRegister)
