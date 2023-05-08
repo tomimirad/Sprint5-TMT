@@ -2,9 +2,21 @@
 const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require("../database/models");
+const sequelize = db.sequelize;
+
+
+const Producto = db.Producto
 
 const controller = {
 
+
+	producList: (req, res) => {
+		db.Producto.findAll()
+		.then(productos=>{
+			res.render("productList", { productos : productos, toThousand });
+		})
+    },
 
 	detail: (req, res) => {
 		const product = productModel.find(req.params.id)

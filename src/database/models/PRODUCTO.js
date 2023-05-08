@@ -8,16 +8,19 @@ module.exports = (sequelize,DataTypes)=>{
             primaryKey: true
         },
         titulo:{
-            type:DataTypes.VARCHAR(100),
+            type:DataTypes.STRING,
+            allowNull:false
         },
         precio:{
             type:DataTypes.FLOAT(12),
+            allowNull:false
         },
         descripcion:{
             type:DataTypes.TEXT,
         },
         img:{
-            type:DataTypes.VARCHAR(255),
+            type:DataTypes.STRING,
+            allowNull:false
         },
         descuento:{
             type:DataTypes.INTEGER(11)
@@ -29,7 +32,7 @@ module.exports = (sequelize,DataTypes)=>{
             type:DataTypes.INTEGER(11)
         },
         sale:{
-            type:DataTypes.VARCHAR(10)
+            type:DataTypes.STRING
         }
 
     }

@@ -28,10 +28,7 @@ const mainController = {
         let productos = productModel.readFile();
         res.render("productCart", { productos : productos, toThousand });
     },
-    producList: (req, res) => {
-        let productos = productModel.readFile();
-        res.render("productList", { productos : productos, toThousand });
-    },
+    
     create:(req,res)=>{
         if (req.session.usuario) {
             let productos = productModel.readFile();
