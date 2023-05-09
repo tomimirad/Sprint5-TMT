@@ -8,7 +8,7 @@ const uploadFile = multerMiddleware('images','product');
 const productsController = require('../controllers/productsController');
 
 /*** GET ALL PRODUCTS ***/ 
-router.get('/productList', productsController.producList);
+router.get('/productos', productsController.productList);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', productsController.create); 

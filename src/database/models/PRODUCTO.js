@@ -25,7 +25,7 @@ module.exports = (sequelize,DataTypes)=>{
         descuento:{
             type:DataTypes.INTEGER(11)
         },
-        coutas:{
+        cuotas:{
             type:DataTypes.INTEGER(11)
         },
         subCategoria_id:{
@@ -39,9 +39,15 @@ module.exports = (sequelize,DataTypes)=>{
 
     let config = {
         tableName:'productos',
+        timestamps: false,
         paranoid: true
     }
 
     let Producto = sequelize.define(alias,cols,config)
+ 
+    // Producto.associate = function(models){
+    //     Producto.
+    // }
+
     return Producto
 }

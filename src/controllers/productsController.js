@@ -11,8 +11,8 @@ const Producto = db.Producto
 const controller = {
 
 
-	producList: (req, res) => {
-		db.Producto.findAll()
+	productList: (req, res) => {
+		Producto.findAll()
 		.then(productos=>{
 			res.render("productList", { productos : productos, toThousand });
 		})
