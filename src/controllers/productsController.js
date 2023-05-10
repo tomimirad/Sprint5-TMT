@@ -17,16 +17,20 @@ const controller = {
 			res.render("productList", { productos : productos, toThousand });
 		})
     },
-
 	detail: (req, res) => {
-		const product = productModel.find(req.params.id)
-		res.render('detail', {
-			product, toThousand
-		})
-	},
+        const inSale = productModel.inSale('in-sale')
+        let productos = productModel.readFile();
+        let producto = productos.find(producto => producto.id == req.params.productoId);
+        res.render("productDetail", { producto : producto , productos : productos, inSale, toThousand});
+    },
 
 	// Create - Form to create
 	create: (req, res) => {
+		// if (req.session.usuario) {
+        //     res.render("create",{productos: productos})
+        // } else {
+        //     res.send('No tiene permitido acceder a crear producto')
+        // }
 		res.render('create')
 	},
 
@@ -34,50 +38,43 @@ const controller = {
 	// Create -  Method to store
 	
 	store: (req, res) => {
-		// Atrapo todos los campos del formulario
-		const newProduct = {
-			...req.body,
-			img:req.file ?  req.file.filename  : 'notFound.png'
-		}
-		productModel.create(newProduct)
+		
+		Producto.create({
+			titulo: req.body.titulo,
+			precio: req.body.precio,
+			descripcion: req.body.descripcion,
+			img: req.file ?  req.file.filename  : 'notFound.png',
+			descuento:req.body.descuento,
+			cuotas: req.body.cuotas,
+			subCategoria_id:req.body.subcategoria,
+			sale: 'null'
+		});
+		
 		console.log('cree un nuevo producto')
-		res.redirect('create')
+		res.redirect('/products/create')
 	},
-
-
-	// Update - Form to edit
-
-
-	edit: (req, res) => {
-		console.log('ESTOY USANDO EL EDIT DEL GENERICO')
-		let productToEdit = productModel.find(req.params.id)
-		res.render('product-edit-form', { productToEdit })
-	},
-
-	// Update - Method to update
-
-
 
 	update: (req, res) => {
-		let productToEdit = productModel.find(req.params.id)
 
-		productToEdit = {
-
-			id: productToEdit.id,
-			...req.body,
-			image: productToEdit.image,
-
-		}
-
-		productModel.update(productToEdit)
-		res.redirect("/producto/"+req.params.id);
+		Producto.update({
+			titulo: req.body.titulo,
+			precio: req.body.precio,
+			descripcion: req.body.descripcion,
+			img: req.file ?  req.file.filename  : 'notFound.png',
+			descuento:req.body.descuento,
+			cuotas: req.body.cuotas,
+			subCategoria_id:req.body.subcategoria,
+			sale: 'null'
+		},
+		{
+			where:{id:req.params.id}
+		})
 
 	},
 
 
     destroy: function(req,res){
-        productModel.delete(req.params.id);
-        res.redirect("/productList");
+       Producto.destroy({ where:{id:req.params.id}})
     }
 
 

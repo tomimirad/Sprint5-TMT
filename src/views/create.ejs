@@ -5,101 +5,19 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="css/create.css" />
+  <link rel="stylesheet" href="/css/create.css" />
   <title>Document</title>
 </head>
 
 <body>
   <%- include("./partials/header.ejs") %>
-    <!-- <div class="formulario-create" id="create">
-      <div class="izquierda-create">
-        <img src="images/logo2.png" width="200px" height="200px" />
-      </div>
-      <form class="derecha-create" action="/products" method="POST">
-        <span class="titulo">Muebles</span>
-        <div class="form-section">
-          <input type="text" placeholder="Nombre del producto" name="titulo" class="textBox-1" id="nombreDeProducto"
-            required />
-        </div>
-        <div class="form-section">
-          <textarea id="descripcion" name="descripcion" placeholder="Descripcion" required></textarea>
-        </div>
-        <div class="form-section" id="precio-img">
-          <input type="number" id="precio" name="precio" placeholder="Precio" required />
-          <button class="agregarImg">Seleccione una imagen</button>
-        </div>
-        <div class="form-section" id="color">
-          <span>Color</span>
-          <select name="color" required>
-            <option value="">Elegir color</option>
-            <option value="rojo">Rojo</option>
-            <option value="azul">Azul</option>
-            <option value="verde">Verde</option>
-          </select>
-          <span>Subcategoria:</span>
-          <select name="subcategoria" required>
-            <option value="4">Sillon</option>
-            <option value="1">Mesa</option>
-            <option value="3">Escritorios</option>
-          </select>
-        </div>
-        <div class="form-section">
-          <button type="submit" class="agregar">Agregar producto</button>
-          <span class="agregar" id="cancel" onclick="cancel()">Cancelar<span />
-        </div>
-      </form>
-    </div> -->
+
     <div class="cuadroNegro" id="negro"></div>
     <div class="contenedor-create">
       <h1>Bienvenido al area de carga de productos</h1>
-      <!-- <div class="formulario-create" id="create-electro" action="/products" method="POST">
-        <div class="izquierda-create">
-          <img src="images/logo2.png" width="200px" height="200px" />
-        </div>
-        <form class="derecha-create">
-          <span class="titulo">Electrodomesticos</span>
-          <div class="form-section">
-            <input type="text" placeholder="Nombre del producto" class="textBox-1" id="nombreDeProducto" required />
-          </div>
-          <div class="form-section">
-            <textarea id="descripcion" placeholder="Descripcion" required></textarea>
-          </div>
-          <div class="form-section" id="precio-img">
-            <input type="text" id="precio" placeholder="Precio" required />
-            <button class="agregarImg">Selecione una imagen</button>
-          </div>
-          <div class="form-section" id="color ">
-            <span>Color</span>
-            <select name="color" required>
-              <option>Elegir color</option>
-              <option value="Rojo">Rojo</option>
-              <option value="Azul">Azul</option>
-              <option value="Verde">Verde</option>
-              <option value="personal">Color personalizado</option>
-            </select>
-            <span>Subcategoria:</span>
-            <select name="subcategoria" required>
-              <option>Television</option>
-              <option>Microondas</option>
-              <option>Lavarropas</option>
-            </select>
-          </div>
-          <div class="form-section">
-            <button class="agregar">Agregar producto</button>
-            <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
-          </div>
-        </form>
-      </div> -->
-      <!-- <div class="botones-form">
-        <button class="mueble" onclick="mostrarPopup()">Muebles</button>
-        <button class="electro" onclick="mostrarElectro()">
-          Electrodomesticos
-        </button>
-      </div> -->
-
       <div class="formulario-create" id="create">
         <div class="izquierda-create">
-          <img src="images/logo2.png" width="200px" height="200px" />
+          <img src="/images/logo2.png" width="200px" height="200px" />
         </div>
         <form class="derecha-create" action="/products" method="POST" enctype="multipart/form-data">
           <span class="titulo">Nuevo producto</span>
@@ -119,19 +37,6 @@
             <input class="agregarImg" name="img" type="file"></input>
           </div>
           <div class="form-section" id="color">
-            <span>Color</span>
-            <select name="color" required>
-              <option value="">Elegir color</option>
-              <option value="rojo">Rojo</option>
-              <option value="azul">Azul</option>
-              <option value="verde">Color personalizado</option>
-            </select>
-            <span>Categoria:</span>
-            <select name="categoria" required>
-              <option value="">Elija una categoria</option>
-              <option value="1">Muebles</option>
-              <option value="2">Electrodomesticos</option>
-            </select>
             <span>Subcategoria:</span>
             <select name="subcategoria" required>
               <option value="">Elija una subcategoria</option>

@@ -14,12 +14,6 @@ const mainController = {
         const inSale = productModel.inSale('in-sale')
         res.render('home', {inSale})
     },
-    producto: (req, res) => {
-        const inSale = productModel.inSale('in-sale')
-        let productos = productModel.readFile();
-        let producto = productos.find(producto => producto.id == req.params.productoId);
-        res.render("productDetail", { producto : producto , productos : productos, inSale, toThousand});
-    },
     cart: (req, res) => {
         let productos = productModel.readFile();
         res.render("productCart", { productos : productos, toThousand});
@@ -27,16 +21,6 @@ const mainController = {
     productRecom: (req, res) => {
         let productos = productModel.readFile();
         res.render("productCart", { productos : productos, toThousand });
-    },
-    
-    create:(req,res)=>{
-        if (req.session.usuario) {
-            let productos = productModel.readFile();
-            res.render("create",{productos: productos})
-        } else {
-            res.send('No tiene permitido acceder a crear producto')
-        }
-        
     }
 }
 

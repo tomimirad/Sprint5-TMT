@@ -18,8 +18,7 @@ router.post('/', uploadFile.single('img'),productsController.store);
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail); 
 
-/*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
+/*** EDIT ONE PRODUCT ***/  
 router.put('/edit/:id', productsController.update); 
 
 
