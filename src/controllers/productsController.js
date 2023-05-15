@@ -55,7 +55,6 @@ const controller = {
 	},
 
 	update: (req, res) => {
-
 		Producto.update({
 			titulo: req.body.titulo,
 			precio: req.body.precio,
@@ -67,14 +66,20 @@ const controller = {
 			sale: 'null'
 		},
 		{
-			where:{id:req.params.id}
+			where:{producto_id:req.params.id}
 		})
-
+		.then(function(){
+			res.redirect('/products/productos')
+		})
+		
 	},
 
 
     destroy: function(req,res){
-       Producto.destroy({ where:{id:req.params.id}})
+    Producto.destroy({ where:{producto_id:req.params.id}})
+	.then(function(){
+			res.redirect('/products/productos')
+		})
     }
 
 

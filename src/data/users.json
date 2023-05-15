@@ -1,0 +1,78 @@
+[
+ {
+  "id": 1,
+  "nombre": "Thiago",
+  "apellido": "Pizarro",
+  "email": "gmail@gmail.com",
+  "contrasena": "ThiagoPizarro",
+  "categoria": "admin",
+  "img": "Thiago.jpg"
+ },
+ {
+  "id": 2,
+  "nombre": "Tomas",
+  "apellido": "Miranda",
+  "email": "tomas@gmail.com",
+  "contrasena": "TomasMiranda",
+  "categoria": "user",
+  "img": "Tomi.jpg"
+ },
+ {
+  "id": 3,
+  "nombre": "Martina",
+  "apellido": "Pizarro",
+  "email": "Martina@gmail.com",
+  "contrasena": "MartinaPizarro",
+  "categoria": "user",
+  "img": "Martu.jpg"
+ },
+ {
+  "id": 4,
+  "nombre": "Julian",
+  "apellido": "Barrionuevo",
+  "email": "Julian@gmail.com",
+  "contrasena": "JulianBarrionuevo",
+  "categoria": "user",
+  "img": "Juli.jpg"
+ },
+ {
+  "id": 5,
+  "nombre": "Martina",
+  "email": "Solis@gmail.com",
+  "contrasena": "$2a$10$/wCbaDnI5KGAdsFselopt.zXe/hQzn/zzkw49dpJoAY6Dlb90PH3u",
+  "apellido": "Solis",
+  "telefono": "02901493678",
+  "img": "user-img-1681170428215.jpg",
+  "categoria": "user"
+ },
+ {
+  "id": 6,
+  "nombre": "Hana",
+  "email": "Hana1234@eeegmail.com",
+  "contrasena": "$2a$10$DpzvZf7n0nD26iN4wV5LNeutwmKHyvqZaLyVX6tmdd12unqJ1ajIu",
+  "apellido": "Pizarro Solis",
+  "telefono": "02932443770",
+  "img": "user-img-1681170604121.jpg",
+  "categoria": "user"
+ },
+ {
+  "id": 7,
+  "nombre": "Pepito",
+  "email": "maripoza1309@gmail.com",
+  "contrasena": "$2a$10$ZfPv//AuOi/zJsqCwoOJtugVothsVNvv2xF64GIe8oz48Yy2mpgyq",
+  "apellido": "Del Valle",
+  "telefono": "2901493678",
+  "img": "user-img-1681307345426.jpg",
+  "categoria": "user"
+ },
+ {
+  "id": 8,
+  "nombre": "Martina",
+  "email": "dxnt3dream@gmail.com",
+  "contrasena": "$2a$10$C.5SZFO03lo6YX/61a7laO2WyH7gXydxSKkrtmj3TUX19Y4YlIHzq",
+  "apellido": "Solis",
+  "telefono": "2901493678",
+  "img": "user-img-1681307456025.jpg",
+  "categoria": "user"
+ }
+]

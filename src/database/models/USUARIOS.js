@@ -28,7 +28,8 @@ module.exports = (sequelize,DataTypes)=>{
             allowNull:false
         },
         telefono:{
-            type:DataTypes.INTEGER(15)
+            type:DataTypes.INTEGER(15),
+            allowNull:false
         },
         categoria:{
             type:DataTypes.STRING,
@@ -38,9 +39,8 @@ module.exports = (sequelize,DataTypes)=>{
     }
 
     let config = {
-        tableName:'productos',
-        timestamps: false,
-        paranoid: true
+        tableName:'usuarios',
+        timestamps: false
     }
 
     let Usuario = sequelize.define(alias,cols,config)
