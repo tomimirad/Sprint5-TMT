@@ -13,7 +13,7 @@
         <div class="contenedorTarjetas">
 
                 <% productos.forEach(producto=> { %>
-                    <div class="product"><a href="/producto/<%= producto.id %>">
+                    <div class="product"><a href="/products/detail/<%=producto.producto_id%>">
                             <div class="img-prod arriba">
                                 <img src="/images/<%= producto.img %>"
                                 alt="<%= producto.titulo %>">

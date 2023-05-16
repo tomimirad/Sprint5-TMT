@@ -14,14 +14,18 @@ const controller = {
 	productList: (req, res) => {
 		Producto.findAll()
 		.then(productos=>{
+			console.log(productos)
 			res.render("productList", { productos : productos, toThousand });
 		})
     },
 	detail: (req, res) => {
-        const inSale = productModel.inSale('in-sale')
-        let productos = productModel.readFile();
-        let producto = productos.find(producto => producto.id == req.params.productoId);
-        res.render("productDetail", { producto : producto , productos : productos, inSale, toThousand});
+		Producto.findByPk(req.params.id)
+		.then(function(producto){
+			res.render('productDetail', {producto, toThousand})
+		})
+		.catch(function(e){
+			res.send(e)
+		})
     },
 
 	// Create - Form to create
