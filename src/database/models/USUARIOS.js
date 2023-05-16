@@ -31,10 +31,10 @@ module.exports = (sequelize,DataTypes)=>{
             type:DataTypes.INTEGER(15),
             allowNull:false
         },
-        categoria:{
-            type:DataTypes.STRING,
-            allowNull:false
-        }
+        // categoria:{
+        //     type:DataTypes.STRING,
+        //     allowNull:false
+        // }
 
     }
 
