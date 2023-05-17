@@ -52,7 +52,7 @@ const controller = {
 	// Create - Form to create
 	create: (req, res) => {
 		if (req.session.usuario) {
-            res.render("create",{productos: productos})
+            res.render("create")
         } else {
             res.send('No tiene permitido acceder a crear producto')
         }
@@ -63,7 +63,7 @@ const controller = {
 	// Create -  Method to store
 	
 	store: (req, res) => {
-		
+		console.log(req.body);
 		Producto.create({
 			titulo: req.body.titulo,
 			precio: req.body.precio,
@@ -75,7 +75,6 @@ const controller = {
 			sale: 'null'
 		});
 		
-		console.log('cree un nuevo producto')
 		res.redirect('/products/create')
 	},
 

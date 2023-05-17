@@ -25,12 +25,11 @@ const usersController = {
             }else if(bcrypt.compareSync(req.body.contra,usuarioLogin.contrasena)){
                 req.session.usuario = usuarioLogin;
                 res.locals.usuario = usuarioLogin
-                res.render("user", {usuario:usuarioLogin})
+                res.redirect("/profile")
             } else {
                 res.render('login', { error: {msg:'La contraseña es incorrecta'}})
             }
         }
-       
     },
     register: (req, res) => {
         if (!req.session.usuario) {
@@ -55,7 +54,7 @@ const usersController = {
                     categoria: 'user'   
                 })
                 req.session.usuario = await Usuario.findOne({where:{email:req.body.email}})
-                res.render("user", {usuario:usuarioLogin})
+                res.redirect("/profile")
                 // req.session.usuario =  Usuario.findOne({where:{email:req.body.email}})
                 // res.redirect('/profile')
             } else {
