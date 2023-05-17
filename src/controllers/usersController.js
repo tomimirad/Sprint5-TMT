@@ -1,7 +1,10 @@
 const usersModel = require("../model/User")
 const bcrypt = require("bcryptjs");
 const { validationResult } = require('express-validator')
-const db = require("../database/models")
+const fs  = require('fs')
+const path = require('path');
+const db = require("../database/models");
+const { log } = require("console");
 const Usuario = db.Usuario
 
 
@@ -62,7 +65,6 @@ const usersController = {
             }
             
         }
-
     },
     profile:(req, res) => {
         if(req.session.usuario){
@@ -73,10 +75,46 @@ const usersController = {
             res.send('No tiene permitido ingresar')
         }
     },
+    editprofile:(req, res) => {
+		Usuario.update({
+			nombre: req.body.nombre,
+			apellido: req.body.apellido,
+			email: req.body.email,
+			contrasena:req.body.contrasena,
+			telefono: req.body.telefono,
+			categoria:req.body.categoria
+		},{
+            where:{usuario_id:req.params.id}
+        }
+        )
+        .then(()=>{
+            res.redirect('/profile')
+        })
+		.catch((e)=>{
+            res.send(e)
+        })
+	},
+    destroyprofile:(req,res) =>{
+        Usuario.findByPk(req.params.id)
+        .then((UsuarioAEliminar)=>{
+            if (UsuarioAEliminar.img !== 'imgDefault.png') {
+                fs.unlinkSync(path.resolve(__dirname, "../../public/images/usersProfile/" + UsuarioAEliminar.img));
+            }
+            Usuario.destroy({
+                where:{usuario_id:req.params.id}
+            })
+            .then(()=>{
+                req.session.destroy()
+                res.redirect('/')
+            })
+        })
+        .catch((e)=>{
+            res.send(e)
+        })
+    },
     cerrarSesion: function(req, res){
         req.session.destroy()
         res.redirect('/')
     }
 }
 module.exports = usersController
-                                                

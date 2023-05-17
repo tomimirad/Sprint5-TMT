@@ -63,7 +63,6 @@ const controller = {
 	// Create -  Method to store
 	
 	store: (req, res) => {
-		console.log(req.body);
 		Producto.create({
 			titulo: req.body.titulo,
 			precio: req.body.precio,

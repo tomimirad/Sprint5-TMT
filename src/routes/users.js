@@ -59,4 +59,8 @@ router.post('/login', validacionesLogin, usersController.procesoLogin)
 
 router.post('/register', uploadFile.single('img'), validacionesRegistro, usersController.procesoRegister)
 
+router.put('/profile/edit/:id', usersController.editprofile)
+
+router.delete('/profile/delete/:id', usersController.destroyprofile)
+
 module.exports = router;
