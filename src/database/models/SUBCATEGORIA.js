@@ -1,40 +1,36 @@
-module.exports = (sequelize, DataTypes)=>{
+module.exports=(sequelize,DataTypes)=>{
     let alias = 'Subcategoria'
 
     let cols = {
         subCategoria_id:{
             autoIncrement:true,
             type:DataTypes.INTEGER,
-            primaryKey: true
+            primaryKey:true
         },
         subCategoria:{
             type:DataTypes.STRING,
             allowNull:false
-        },
-        categoria_id:{
-            type:DataTypes.INTEGER
         }
     }
 
     let config = {
         tableName:'subcategoria',
-        timestamps: false,
-        paranoid: true
+        timestamps: false
     }
+
     let Subcategoria = sequelize.define(alias,cols,config)
 
     Subcategoria.associate = function(models){
         Subcategoria.belongsTo(models.Categoria,{
-            foreignKey:"categoria_id",
-            as: "categoria"
-        }),
+            foreignKey:'categoria_id',
+            as:'categoria'
+        })
         Subcategoria.hasMany(models.Producto,{
             foreignKey: 'subCategoria_id',
-            as:'productos'
+            as:'producto'
         })
     }
+
     return Subcategoria
-    }
 
-
-
+}

@@ -31,9 +31,6 @@ module.exports = (sequelize,DataTypes)=>{
             allowNull:false
 
         },
-        subCategoria_id:{
-            type:DataTypes.INTEGER
-        },
         sale:{
             type:DataTypes.STRING,
             allowNull:false
@@ -54,27 +51,8 @@ module.exports = (sequelize,DataTypes)=>{
             foreignKey: 'subCategoria_id'
         })
     }
-
     return Producto
 }
 
 
 
-
-
-
-
-
-
-    // Executing (default): SELECT `Producto`.`producto_id`, `Producto`.`titulo`, `Producto`.`precio`, `Producto`.`descripcion`, `Producto`.`img`, `Producto`.`descuento`, `Product
-    // o`.`cuotas`, `Producto`.`subCategoria_id`, `Producto`.`sale`,
-    
-    //`subcategoria`.`subCategoria_id` AS `subcategoria.subCategoria_id`, `subcategoria`.`subCategoria` AS `subcateg
-    // oria.subCategoria`, `subcategoria`.
-    
-    //`categoria_id` AS `subcategoria.categoria_id`, `subcategoria`.
-    
-    //`CategoriumCategoriaId` AS `subcategoria.CategoriumCategoriaId` FROM `produ
-    // ctos` AS `Producto` LEFT OUTER JOIN `subcategoria` AS `subcategoria` ON `Producto`.`subCategoria_id` = `subcategoria`.`subCategoria_id`;
-    // node:internal/process/promises:279
-    //             triggerUncaughtException(err, true /* fromPromise */);

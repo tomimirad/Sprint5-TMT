@@ -1,26 +1,31 @@
 
 const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const db = require("../database/models");
 
 
-const toThousand = n => {
-    const parts = n.toString().split(".");
-    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    return parts.join(",");
-}
+
+const Producto = db.Producto
+
 
 const mainController = {
     index : (req,res)=>{
-        const inSale = productModel.inSale('in-sale')
-        res.render('home', {inSale})
+        Producto.findAll(
+			{
+				where:{sale:'OnSale'}
+			}
+		)
+		.then((productos=>{
+			res.render("home", { productos : productos, toThousand });
+		}))
+		.catch((e)=>{
+			res.send(e)
+		})
     },
     cart: (req, res) => {
         let productos = productModel.readFile();
         res.render("productCart", { productos : productos, toThousand});
-    },
-    productRecom: (req, res) => {
-        let productos = productModel.readFile();
-        res.render("productCart", { productos : productos, toThousand });
     }
 }
 

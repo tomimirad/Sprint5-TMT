@@ -4,7 +4,7 @@ module.exports = (sequelize,DataTypes)=>{
     let cols = {
         categoria_id:{
             autoIncrement:true,
-            type:DataTypes.INTEGER(11),
+            type:DataTypes.INTEGER,
             primaryKey: true
         },
         categoria:{
@@ -15,15 +15,14 @@ module.exports = (sequelize,DataTypes)=>{
 
     let config = {
         tableName:'categoria',
-        timestamps: false,
-        paranoid: true
+        timestamps: false
     }
 
     let Categoria = sequelize.define(alias,cols,config)
  
     Categoria.associate = function(models){
         Categoria.hasMany(models.Subcategoria,{
-            foringKey:"categoria_id",
+            foreingKey:"categoria_id",
             as:"subcategorias"
         })
     }

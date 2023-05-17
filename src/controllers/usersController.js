@@ -24,7 +24,7 @@ const usersController = {
                 res.render("login",{ error: {msg:'Este usuario no existe'}})
             }else if(bcrypt.compareSync(req.body.contra,usuarioLogin.contrasena)){
                 req.session.usuario = usuarioLogin;
-                res.redirect("/profile")
+                res.render("user", {usuario:usuarioLogin})
             } else {
                 res.render('login', { error: {msg:'La contraseña es incorrecta'}})
             }
@@ -53,7 +53,7 @@ const usersController = {
                     img:req.file ?  req.file.filename  : 'imgDefault.png'    
                 })
                 req.session.usuario = await Usuario.findOne({where:{email:req.body.email}})
-                res.redirect('/profile')
+                res.render("user", {usuario:usuarioLogin})
                 // req.session.usuario =  Usuario.findOne({where:{email:req.body.email}})
                 // res.redirect('/profile')
             } else {
@@ -66,7 +66,7 @@ const usersController = {
     profile:(req, res) => {
         if(req.session.usuario){
             // let usuario = usersModel.buscarPK(req.session.usuario.id);
-            let usuario = Usuario.findByPk(req.param.id);
+            let usuario = req.session.usuario;
             res.render('user', { usuario : usuario })
         } else {
             res.send('No tiene permitido ingresar')

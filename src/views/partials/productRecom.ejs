@@ -17,8 +17,8 @@
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAQpJREFUaEPt2FEOwjAMA9DspMDN4CbcjCnSkPrBaLvYjiplX3x0wy8u6sRmi1/b4vmtANkNVgPVQHACtYWCAwzfXg1MjvBpZh8ze0zed7pc2YCHvx1J/DMEoQK04b/ThCAUgF/hYQg24F94R7zM7B75PTAB9PAOZwEk4VkAWXgGQBoeDZCHRwJSwqMAaeERgNTwUUB6eDYA8q7TO6WjB1mvBToiCvABpSIQgFQECpCGQAJSEGiAHMEASBEsgAzBBEgQbEAP4X+t+Dly+VIAzhDh8NF3odmptSc2JLwa4N/3PrZMaNu0k1Ntodm2htcXYHhUpIXVAGmww4+tBoZHRVpYDZAGO/zY5RvYAQgIODGcFQF/AAAAAElFTkSuQmCC"/>
             </div>
 
-            <% inSale.forEach(producto => { %>
-                <a href="/producto/<%= producto.id %>"><div class="product">
+            <% productos.forEach(producto => { %>
+                <a href="/products/detail/<%=producto.producto_id%>"><div class="product">
                 <div class="img-prod arriba">
                     <img src="/images/<%= producto.img %>" alt="Microondas 1">
                 </div>
@@ -26,7 +26,7 @@
                     <div class="descrip-prod">
                         <p class="nombre texto"><%=producto.titulo%></p>
                         <p class="cuotas"> <%=producto.cuotas %> cuotas sin interés</p>
-                        <p class="precio texto">$<%=producto.precio %></p>
+                        <p class="precio texto">$<%=toThousand(producto.precio) %></p>
                         <div class="disc">
                             <p><%=producto.descuento %>%</p>
                         </div>

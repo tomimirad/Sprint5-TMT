@@ -3,25 +3,44 @@ const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
+const { Association } = require('sequelize');
 const sequelize = db.sequelize;
 
 
 const Producto = db.Producto
-
 const controller = {
-
-
+	filtrar: (req,res)=>{
+		Producto.findAll(
+			{where:{subCategoria_id: req.params.id},
+			include:['subcategoria']}
+		)
+		.then(productos=>{
+			res.render("productList", { productos : productos, toThousand })
+		})
+		.catch((e)=>{
+			res.send(e)
+		})
+	},
 	productList: (req, res) => {
 		Producto.findAll()
 		.then(productos=>{
-			console.log(productos)
 			res.render("productList", { productos : productos, toThousand });
 		})
     },
 	detail: (req, res) => {
 		Producto.findByPk(req.params.id)
 		.then(function(producto){
-			res.render('productDetail', {producto, toThousand})
+			Producto.findAll(
+				{
+					where:{sale:'OnSale'}
+				}
+			)
+			.then((productos=>{
+				res.render('productDetail', {productos, producto, toThousand})
+			}))
+			.catch((e)=>{
+				res.send(e)
+			})
 		})
 		.catch(function(e){
 			res.send(e)
@@ -63,10 +82,8 @@ const controller = {
 			titulo: req.body.titulo,
 			precio: req.body.precio,
 			descripcion: req.body.descripcion,
-			img: req.file ?  req.file.filename  : 'notFound.png',
 			descuento:req.body.descuento,
 			cuotas: req.body.cuotas,
-			subCategoria_id:req.body.subcategoria,
 			sale: 'null'
 		},
 		{
