@@ -11,7 +11,9 @@ const Producto = db.Producto
 const controller = {
 	filtrar: (req,res)=>{
 		Producto.findAll(
-			{where:{subCategoria_id: req.params.id},
+			{
+				where:{subCategoria_id: req.params.id
+			},
 			include:['subcategoria']}
 		)
 		.then(productos=>{
@@ -49,12 +51,12 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		// if (req.session.usuario) {
-        //     res.render("create",{productos: productos})
-        // } else {
-        //     res.send('No tiene permitido acceder a crear producto')
-        // }
-		res.render('create')
+		if (req.session.usuario) {
+            res.render("create",{productos: productos})
+        } else {
+            res.send('No tiene permitido acceder a crear producto')
+        }
+	
 	},
 
 

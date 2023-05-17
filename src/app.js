@@ -9,15 +9,23 @@ const session = require('express-session');
 
 //! ************ Middlewares************
 
+const userLogged = require('./middlewares/userLoggedMiddleware')
+
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
-app.use(session({secret: 'Mensaje secreto.'}));
+app.use(session({
+    secret: 'Mensaje secreto.',
+    resave: false,
+    saveUninitialized: false
+}));
+
 
 app.use(express.json());
 
 app.use(methodOverride('_method'));
 
+app.use(userLogged)
 //! ************ Template Engine  ************
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));

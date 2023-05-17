@@ -24,6 +24,7 @@ const usersController = {
                 res.render("login",{ error: {msg:'Este usuario no existe'}})
             }else if(bcrypt.compareSync(req.body.contra,usuarioLogin.contrasena)){
                 req.session.usuario = usuarioLogin;
+                res.locals.usuario = usuarioLogin
                 res.render("user", {usuario:usuarioLogin})
             } else {
                 res.render('login', { error: {msg:'La contraseña es incorrecta'}})
@@ -50,7 +51,8 @@ const usersController = {
                 await Usuario.create({
                         ...req.body,
                     contrasena:bcrypt.hashSync(req.body.contrasena,10),
-                    img:req.file ?  req.file.filename  : 'imgDefault.png'    
+                    img:req.file ?  req.file.filename  : 'imgDefault.png',
+                    categoria: 'user'   
                 })
                 req.session.usuario = await Usuario.findOne({where:{email:req.body.email}})
                 res.render("user", {usuario:usuarioLogin})
@@ -77,19 +79,5 @@ const usersController = {
         res.redirect('/')
     }
 }
-
 module.exports = usersController
-
-
-
-
-
-
-
-// const user = {
-                //     ...req.body,
-                //     contrasena:bcrypt.hashSync(req.body.contrasena,10),
-                //     img:req.file ?  req.file.filename  : 'imgDefault.png'
-                // }
-                // usersModel.crear(user)
-                // req.session.usuario =  usersModel.buscarXtodo('email', req.body.email)
+                                                
