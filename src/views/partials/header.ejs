@@ -45,7 +45,7 @@
                 <div class="cont"><a class="hover-line" href="#contacto">Contacto</a></div>
             </div>
             <div class="barraDbusq">
-                <form action="" class="search-bar"> 
+                <form action="/products/filtroTitulo" method="post" class="search-bar"> 
                     <input type="text" name="search" placeholder="Buscar..." required>
                     <a href="/productList">
                         <button class="search-btn" type="submit">
@@ -82,25 +82,23 @@
                         <span class="iconoMenuDesplCierre" id="iconoMenuDesplCierre" onclick="cancel()"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg></span>
                         <span id="dropdown" onclick="alternarFunciones('ddR-content')">Productos<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKxJREFUSEvtk9ENwjAMRF83YJN2BJiIEUo36EYwAmzCCOgkkEIax85HJZDirza63rMv7sDONezsTwe4CfeIfj+iC7ACT6PVA3AGFmuU2iXLfAbuwKkAkfkVmN4A6TdVA8jgBowFSGr+AI7WlN6aliDq8tN51VxCDyBNDtGZYnHNo4AcoveQeQsghejZzDy/5UhE6TeKS2WtbdMWuX9pRNA6QcTzS9MBbmT/H9ELPngdGfgDn7kAAAAASUVORK5CYII=" alt="flecha abajo" style="height: 30px; width: 30px;;"/></span>
                         <div class="ddR-content" id="ddR-content">
-                            <a href="/"><span>Mostrar todo</span></a>
+                            <a href="/products/productos"><span>Mostrar todo</span></a>
                             <div class="miniddRes">
                                 <span class="categoriaddRes" onclick="alternarFunciones('minidd-contentResM')" >Muebles <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg></span>
                                 <div class="minidd-contentResM" id="minidd-contentResM">
-                                    <a href="/"><span>Mostrar todo</span></a>
-                                    <a href="/"><span>Mesas</span></a>
-                                    <a href="/"><span>Camas</span></a>
-                                    <a href="/"><span>Escritorios</span></a>
-                                    <a href="/"><span>Sillones</span></a>
+                                    <a href="/products/filtrar/1"><span>Mesas</span></a>
+                                    <a href="/products/filtrar/2"><span>Camas</span></a>
+                                    <a href="/products/filtrar/3"><span>Escritorios</span></a>
+                                    <a href="/products/filtrar/4"><span>Sillones</span></a>
                                 </div>
                             </div>
                             <div class="miniddRes">
                                 <span class="categoriaddRes" onclick="alternarFunciones('minidd-contentResE')">Electronicos <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);"><path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"></path></svg></span>
                                 <div class="minidd-contentResE" id="minidd-contentResE">
-                                    <a href="/"><span>Mostrar todo</span></a>
-                                    <a href="/"><span>Microondas</span></a>
-                                    <a href="/"><span>Televisores</span></a>
-                                    <a href="/"><span>Lavarropas</span></a>
-                                    <a href="/"><span>Cafeteras</span></a>
+                                    <a href="/products/filtrar/5"><span>Microondas</span></a>
+                                    <a href="/products/filtrar/6"><span>Televisores</span></a>
+                                    <a href="/products/filtrar/7"><span>Lavarropas</span></a>
+                                    <a href="/products/filtrar/8"><span>Cafeteras</span></a>
                                 </div>
                             </div>
                         </div>

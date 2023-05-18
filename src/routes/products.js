@@ -14,18 +14,19 @@ router.get('/productos', productsController.productList);
 router.get('/create', productsController.create); 
 router.post('/', uploadFile.single('img'),productsController.store); 
 
-
 /*** GET ONE PRODUCT ***/ 
 router.get('/detail/:id', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/  
 router.put('/edit/:id', productsController.update); 
 
-
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', productsController.destroy); 
 
-
 router.get('/filtrar/:id', productsController.filtrar)
+
+router.post('/filtroTitulo', productsController.filtroTitulo)
+
+router.get('/carrito/:id', productsController.carrito)
 
 module.exports = router;

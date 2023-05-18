@@ -3,12 +3,16 @@ const jsonDB = require('../model/jsonDatabase');
 const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
-const { Association } = require('sequelize');
-const sequelize = db.sequelize;
+const url = require('url');
+const sequelize= require('sequelize');
+const Op = sequelize.Op
 
 
 const Producto = db.Producto
 const controller = {
+	carrito:(req,res)=>{
+		res.locals.item = req.params.id
+	},
 	filtrar: (req,res)=>{
 		Producto.findAll(
 			{
@@ -22,6 +26,20 @@ const controller = {
 		.catch((e)=>{
 			res.send(e)
 		})
+	},
+	filtroTitulo:(req,res)=>{
+		Producto.findAll({
+			where:{
+				titulo:{[Op.like]:'%' + req.body.search + '%'}
+			}
+		})
+		.then((productos)=>{
+			res.render('productList', {productos, toThousand})
+		})
+		.catch((e)=>{
+			res.send(e)
+		})
+
 	},
 	productList: (req, res) => {
 		Producto.findAll()

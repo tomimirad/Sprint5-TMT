@@ -29,19 +29,22 @@
                     <div class="precio">
                         <% if (producto.descuento>0) { %>
                             <div class="precio">
-                               <span style="text-decoration: line-through; color: rgb(227, 59, 59);">
-                                   $<%=toThousand(producto.precio) %>
-                               </span>
-                               <span style="color: rgb(59, 227, 73);"><%=toThousand(producto.descuento) %>%OFF</span>
-                                   <h2 >$<%=toThousand(producto.precio-((producto.precio*producto.descuento)/100)) %>
-                                   </h2>
-                           </div>
-                           <% } else { %>
-                               <h2 style="text-align: center;">$<%=toThousand(producto.precio) %></h2>
-                           <% } %>
+                                <span style="text-decoration: line-through; color: rgb(227, 59, 59);">
+                                    $<%=toThousand(producto.precio) %>
+                                </span>
+                                <span style="color: rgb(59, 227, 73);">
+                                    <%=toThousand(producto.descuento) %>%OFF
+                                </span>
+                                <h2>$<%=toThousand(producto.precio-((producto.precio*producto.descuento) /100)) %>
+                                </h2>
+                            </div>
+                            <% } else { %>
+                                <h2 style="text-align: center;">$<%=toThousand(producto.precio) %>
+                                </h2>
+                                <% } %>
                     </div>
                     <div class="botones">
-                        <a href="/productCart"><span class="botom"> Agregar al carrito <img
+                        <a href="/products/carrito/<%=producto.producto_id%>"><span class="botom"> Agregar al carrito <img
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAQlJREFUSEvNlMEVATEQhr+tgBKoAB1QAR3gygEdUAEXrqgAHVABKkAFqIA33mbf2pVNWPHMNZP55s8/Ew/H4Tmuz08BN1/NBZgBvW+oCytQAFW3AqzTQl49URcYAiug5gKQBc5+4TxwTAPRmSwe1FMU3gElua8DFIFtCsAJyCUB5Ey6KGggqrHoYKj0AdA3ARrA9ENA4J1p0WQnMiGILj+sZAOU1R0TYAR03gQ0/UV9XDMBxKjDi2fSeXD1zRXlVgBJWgLVCEQHmAPiXRAmBZIo27ywHNnY92IDMI2sYu8B2Z+nsAVYCoin2QLGQAuYAO1ImaQz4xSpWuE5jzaVdGYNcK7AuQf/C7gDNOwuGTttIPQAAAAASUVORK5CYII=" /></span></a>
                         <div class="bot-carrito delet">
                             <form action="/products/delete/<%=producto.producto_id %>?_method=DELETE" method="POST"
@@ -68,7 +71,8 @@
                         <div class="izquierda-create">
                             <img src="/images/logo2.png" width="200px" height="200px" />
                         </div>
-                        <form class="derecha-create" action="/products/edit/<%=producto.producto_id %>?_method=PUT" method="POST">
+                        <form class="derecha-create" action="/products/edit/<%=producto.producto_id %>?_method=PUT"
+                            method="POST">
                             <span class="titulo">Actualizar
                                 datos</span>
                             <div class="form-section">
