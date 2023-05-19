@@ -8,66 +8,42 @@
     <link rel="stylesheet" href="css/homestyle.css">
     <title>Carrito</title>
   </head>
-
+  
   <body>
-       
+    
     <%- include('./partials/header')%>
 
     <div class="contenedor-cart">
       <div class="arriba">
         <div class="izquierda">
-          <div class="tarjeta">
-            <div class="tarjeta-izquierda">
-              <div class="imagenProducto">
-                <img src="images/<%= productos[0].img %>" />
-              </div>
-              <div class="detalles">
-                <p><%= productos[0].titulo %></p>
-                <p class="precio">$<%=toThousand(productos[0].precio) %></p>
-                <button type="reset">Eliminar</button>
-              </div>
-            </div>
-            <div class="tarjeta-derecha">
-                <span>-</span>
-                <div class="cantida-producto">1</div>
-                <span>+</span>
-              </div>
-            </div>
-          <div class="tarjeta">
-            <div class="tarjeta-izquierda">
-              <div class="imagenProducto">
-                <img src="images/<%= productos[1].img %>" />
-              </div>
-              <div class="detalles">
-                <p><%= productos[1].titulo %></p>
-                <p class="precio">$<%=toThousand(productos[1].precio) %></p>
-                <button type="reset">Eliminar</button>
-              </div>
-            </div>
-            <div class="tarjeta-derecha">
-              <span>-</span>
-              <div class="cantida-producto">1</div>
-              <span>+</span>
-            </div>
-          </div>
-          <div class="tarjeta">
-            <div class="tarjeta-izquierda">
-              <div class="imagenProducto">
-                <img src="images/<%= productos[2].img %>" />
-              </div>
-              <div class="detalles">
-                <p><%= productos[2].titulo %></p>
-                <p class="precio">$<%=toThousand(productos[2].precio) %></p>
-                <button type="reset">Eliminar</button>
-              </div>
-            </div>
-            <div class="tarjeta-derecha">
-              <span>-</span>
-              <div class="cantida-producto">1</div>
-              <span>+</span>
-            </div>
-          </div>
+          <% let precioTotal = 0%>
+          <% let descuentoTotal = 0%>
+          <% if (locals.carrito) { %>
+            <% (locals.carrito).forEach(producto=> { %>
+              <%precioTotal += producto.precio%>
+              <% descuentoTotal += producto.descuento%>
+              <a href="/products/detail/<%=producto.producto_id%>">
+                <div class="tarjeta">
+                  <div class="tarjeta-izquierda">
+                    <div class="imagenProducto">
+                      <img src="/images/<%= producto.img %>" />
+                    </div>
+                    <div class="detalles">
+                      <p><%= producto.titulo %></p>
+                      <p class="precio">$<%=toThousand(producto.precio) %></p>
+                      <button type="reset">Eliminar</button>
+                    </div>
+                  </div>
+                  <div class="tarjeta-derecha">
+                      <span>-</span>
+                      <div class="cantida-producto">1</div>
+                      <span>+</span>
+                    </div>
+                  </div>
+              </a>
+              <% }) %>
         </div>
+        <% } %>
         <div class="derecha">
           <div class="derecha-arriba">
             <div class="logo">
@@ -75,11 +51,9 @@
             </div>
           </div>
           <div class="derecha-abajo">
-            <% let precioTotal = parseInt(productos[0].precio) + parseInt(productos[1].precio) + parseInt(productos[2].precio) %>
-            <p>Precio lista: $<%=toThousand(precioTotal)%></p>
-            <% let descuentoTotal = (parseInt(productos[0].descuento) + parseInt(productos[1].descuento) + parseInt(productos[2].descuento))* precioTotal / 100 %>
-            <p>Descuentos: $<%= toThousand(descuentoTotal) %> </p>
-            <p>Total: $<%= toThousand( precioTotal - descuentoTotal) %></p>
+            <p>Precio lista: $<%= toThousand(precioTotal)%></p>
+            <p>Descuentos: $<%= toThousand((descuentoTotal)*precioTotal/100)%>  </p>
+            <p>Total: $<%= toThousand( precioTotal - (descuentoTotal)*precioTotal/100) %></p>
             <div class="boton">
               <button type="submit">Realizar compra</button>
             </div>

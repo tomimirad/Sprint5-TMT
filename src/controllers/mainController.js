@@ -24,8 +24,7 @@ const mainController = {
 		})
     },
     cart: (req, res) => {
-        let productos = productModel.readFile();
-        res.render("productCart", { productos : productos, toThousand});
+        res.render("productCart", {toThousand});
     }
 }
 

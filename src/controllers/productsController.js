@@ -11,7 +11,20 @@ const Op = sequelize.Op
 const Producto = db.Producto
 const controller = {
 	carrito:(req,res)=>{
-		res.locals.item = req.params.id
+		Producto.findOne(
+			{
+				where:{producto_id: req.params.id}
+			})
+			.then((producto)=>{
+				let Item = producto.dataValues
+				if (!req.session.item) {
+					req.session.item = [];
+				}
+				req.session.item.push(Item)
+				res.redirect('/products/productos')
+			})
+			
+		
 	},
 	filtrar: (req,res)=>{
 		Producto.findAll(
