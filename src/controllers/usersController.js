@@ -1,4 +1,4 @@
-const usersModel = require("../model/User")
+
 const bcrypt = require("bcryptjs");
 const { validationResult } = require('express-validator')
 const fs  = require('fs')
@@ -75,24 +75,24 @@ const usersController = {
             res.send('No tiene permitido ingresar')
         }
     },
-    editprofile:(req, res) => {
-		Usuario.update({
-			nombre: req.body.nombre,
-			apellido: req.body.apellido,
-			email: req.body.email,
-			contrasena:req.body.contrasena,
-			telefono: req.body.telefono,
-			categoria:req.body.categoria
-		},{
-            where:{usuario_id:req.params.id}
-        }
-        )
-        .then(()=>{
+    editprofile: async(req, res) => {
+        try {
+            await Usuario.update({
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                contrasena:bcrypt.hashSync(req.body.contrasena,10),
+                telefono: req.body.telefono,
+            },{
+                where:{usuario_id:req.params.id}
+            }
+            )
+            req.session.usuario = await Usuario.findOne({where:{email:req.body.email}})
             res.redirect('/profile')
-        })
-		.catch((e)=>{
-            res.send(e)
-        })
+            
+        } catch (error) {
+            res.send(error)
+        }
 	},
     destroyprofile:(req,res) =>{
         Usuario.findByPk(req.params.id)

@@ -82,7 +82,7 @@ const controller = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		if (req.session.usuario) {
+		if (req.session.usuario && (req.session.usuario.categoria == 'admin')) {
             res.render("create")
         } else {
             res.send('No tiene permitido acceder a crear producto')

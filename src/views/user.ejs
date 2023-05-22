@@ -1,34 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/userStyle.css">
+    <link rel="stylesheet" href="/css/create.css">
+    <link rel="stylesheet" href="/css/formulario.css" />
     <title>Document</title>
 </head>
+
 <body>
 
     <%- include("./partials/header.ejs") %>
 
-    <div class="card">
-        <div class="basic-info">
-            <div class="profile">
-                <img src="/images/usersProfile/<%=usuario.img%>">
+        <div class="card">
+            <div class="basic-info">
+                <div class="profile">
+                    <img src="/images/usersProfile/<%=usuario.img%>">
+                </div>
+                <div class="categoriaUs">
+                    <%=usuario.categoria%>
+                </div>
+                <p class="nombreU">
+                    <%=usuario.nombre%>
+                        <%=usuario.apellido%>
+                </p>
+                <p class="emailU"><u>Correo:</u>
+                    <%=usuario.email%>
+                </p>
+                <p class="Ubicacion">Ushuaia, Tierra del Fuego, Argentina</p>
+                <div class="acercaDe">
+                    <p class="titulo">Acerca de</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima fuga expedita reprehenderit et
+                        numquam nam consequatur dolore, provident alias, veritatis possimus ipsa deleniti officia aut
+                        cupiditate cum tenetur vero rerum.</p>
+                </div>
+                <button class="editar" onclick="mostrarPopup()">Editar</button>
+                <a href="/logout">
+                    <div class="botonLogout">Cerrar sesión</div>
+                </a>
             </div>
-            <div class="categoriaUs"><%=usuario.categoria%></div>
-            <p class="nombreU"><%=usuario.nombre%> <%=usuario.apellido%></p> 
-            <p class="emailU"><u>Correo:</u> <%=usuario.email%></p>
-            <p class="Ubicacion">Ushuaia, Tierra del Fuego, Argentina</p>
-            <div class="acercaDe">
-                <p class="titulo">Acerca de</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima fuga expedita reprehenderit et numquam nam consequatur dolore, provident alias, veritatis possimus ipsa deleniti officia aut cupiditate cum tenetur vero rerum.</p>
-            </div>
-            <a href="/logout"><div class="botonLogout">Cerrar sesión</div></a>
         </div>
-    </div>
 
-    <%- include('./partials/footer')%>
+
+        <div class="formulario-edit" id="edit">
+            <form class="formularioRegister" action="/profile/edit/<%=usuario.usuario_id%>?_method=PUT" method="POST">
+                <div class="medio">
+                    <div class="izquierda">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre"
+                            value="<%= usuario.nombre ? usuario.nombre : '' %>" />
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email"
+                            value="<%= usuario.email ? usuario.email : '' %>" />
+                        <label for="contraseña">Contraseña</label>
+                        <input type="password" id="contraseña" name="contrasena" />
+                    </div>
+                    <div class="derecha">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido"
+                            value="<%= usuario.apellido ? usuario.apellido : '' %>" />
+                        <label for="telefono">Telefono:</label>
+                        <input type="text" id="telefono" name='telefono'
+                            value="<%= usuario.telefono ? usuario.telefono : '' %>" />
+                    </div>
+                </div>
+                <div class="register-abajo">
+                    <input type="submit">
+                </div>
+                <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
+            </form>
+        </div>
+        <div class="cuadroNegro" id="negro"></div>
+        </div>
+
+        </div>
+
+        <%- include('./partials/footer')%>
+
+            <script>
+                function mostrarPopup() {
+                    document.getElementById("edit").style.display = "flex";
+                    document.getElementById("negro").style.display = "block";
+                }
+                function cancel() {
+                    document.getElementById("edit").style.display = "none";
+                    document.getElementById("negro").style.display = "none";
+                }
+            </script>
 
 </body>
+
 </html>

@@ -66,3 +66,9 @@ body{
 .basic-info .acercaDe{
     text-align: center;
 }
+
+.formulario-edit {
+    width: 50vw !important;
+    left: 25% !important;
+    right: 25% !important;
+}
