@@ -4,6 +4,7 @@ const productModel = jsonDB('products')
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const db = require("../database/models");
 const url = require('url');
+const {validationResult} = require("express-validator")
 const sequelize= require('sequelize');
 const Op = sequelize.Op
 
@@ -94,18 +95,22 @@ const controller = {
 	// Create -  Method to store
 	
 	store: (req, res) => {
-		Producto.create({
-			titulo: req.body.titulo,
-			precio: req.body.precio,
-			descripcion: req.body.descripcion,
-			img: req.file ?  req.file.filename  : 'notFound.png',
-			descuento:req.body.descuento,
-			cuotas: req.body.cuotas,
-			subCategoria_id:req.body.subcategoria,
-			sale: 'null'
-		});
-		
-		res.redirect('/products/create')
+		let errores = validationResult(req)
+		if (errores.isEmpty()){
+			Producto.create({
+				titulo: req.body.titulo,
+				precio: req.body.precio,
+				descripcion: req.body.descripcion,
+				img: req.file ?  req.file.filename  : 'notFound.png',
+				descuento:req.body.descuento,
+				cuotas: req.body.cuotas,
+				subCategoria_id:req.body.subcategoria,
+				sale: 'null'
+			});
+			res.redirect('/products/create')
+		} else {
+			res.render("create",{errores:errores.mapped(),old:req.body})
+		}
 	},
 
 	update: (req, res) => {

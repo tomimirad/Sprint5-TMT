@@ -14,6 +14,11 @@
 
     <div class="cuadroNegro" id="negro"></div>
     <div class="contenedor-create">
+      <% if(locals.errores && errores.name)  {%>
+        <p><%= errores.name %></p>
+    <% } %>
+       
+
       <h1>Bienvenido al area de carga de productos</h1>
       <div class="formulario-create" id="create">
         <div class="izquierda-create">
@@ -23,22 +28,22 @@
           <span class="titulo">Nuevo producto</span>
           <div class="form-section">
             <input type="text" placeholder="Nombre del producto" name="titulo" class="textBox-1" id="nombreDeProducto"
-              required />
+              value="<%= locals.old && old.titulo ? old.titulo : "" %>" />
           </div>
           <div class="form-section">
-            <textarea id="descripcion" name="descripcion" placeholder="Descripcion" required></textarea>
+            <textarea id="descripcion" name="descripcion" placeholder="Descripcion"></textarea>
           </div>
           <div class="form-section" id="precio-img">
-            <input type="number" id="precio" name="precio" placeholder="Precio" required />
-            <input type="number" id="descueto" name="descuento" placeholder="Descuento"/>
-            <input type="number" id="cuota" name="cuotas" placeholder="cuota"/>
+            <input type="number" id="precio" name="precio" placeholder="Precio" value="<%= locals.old && old.precio ? old.precio : "" %>" />
+            <input type="number" id="descueto" name="descuento" placeholder="Descuento" value="<%= locals.old && old.descuento ? old.descuento : "" %>"/>
+            <input type="number" id="cuota" name="cuotas" placeholder="cuota" value="<%= locals.old && old.cuotas ? old.cuotas : "" %>"/>
           </div>
           <div class="form-section" id="img">
             <input class="agregarImg" name="img" type="file"></input>
           </div>
           <div class="form-section" id="color">
             <span>Subcategoria:</span>
-            <select name="subcategoria" required>
+            <select name="subcategoria" >
               <option value="">Elija una subcategoria</option>
               <option value="1" >Mesa</option>
               <option value="2" >Camas</option>
