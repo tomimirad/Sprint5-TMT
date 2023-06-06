@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/userStyle.css">
     <link rel="stylesheet" href="/css/create.css">
     <link rel="stylesheet" href="/css/formulario.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>Document</title>
 </head>
 
@@ -53,8 +54,7 @@
                         <input type="text" id="nombre" name="nombre"
                             value="<%= usuario.nombre ? usuario.nombre : '' %>" />
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email"
-                            value="<%= usuario.email ? usuario.email : '' %>" />
+                        <input type="email" id="email" name="email" value="<%= usuario.email ? usuario.email : '' %>" />
                         <label for="contraseña">Contraseña</label>
                         <input type="password" id="contraseña" name="contrasena" />
                     </div>
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="register-abajo">
-                    <input type="submit">
+                    <button type="submit" >Actualizar</button>
                 </div>
                 <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
             </form>
@@ -89,6 +89,50 @@
                     document.getElementById("edit").style.display = "none";
                     document.getElementById("negro").style.display = "none";
                 }
+
+
+
+                let form = document.querySelector('form.formularioRegister')
+                let errores = []
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault()
+                    errores = []
+                    let nombre = document.querySelector('input#nombre')
+                    if (nombre.value == '') {
+                        errores.push('El campo Nombre no puede estar vacío.')
+                    }
+
+                    let apellido = document.querySelector('input#apellido')
+                    if (apellido.value == '') {
+                        errores.push('El campo Apellido no puede estar vacío.')
+                    }
+
+                    let email = document.querySelector('input#email')
+                    if (email.value == '') {
+                        errores.push('El campo Email no puede estar vacío.')
+                    }
+
+                    let telefono = document.querySelector('input#telefono')
+                    if (telefono.value == '') {
+                        errores.push('El campo Teléfono no puede estar vacío.')
+                    }
+                    let textoHTML = "<ul>";
+                    for (i = 0; i < errores.length; i++) {
+                        textoHTML += "<li>" + errores[i] + "</li>";
+                    }
+                    textoHTML += "</ul>";
+
+                    if (errores.length > 0) {
+                        event.preventDefault()
+                        Swal.fire({
+                            title: 'Error! 😡',
+                            html: textoHTML,
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+
+                })
             </script>
 
 </body>

@@ -9,6 +9,7 @@ const uploadFile = multerMiddleware('images/usersProfile','user');
 
 //* Validaciones de Registro y Login 
 
+
 const validacionesRegistro = [
     check('nombre').notEmpty().withMessage('Ingrese un nombre').bail()
         .isLength({ min: 2, max: 20}).withMessage('Ingrese entre 2 y 20 carácteres'),

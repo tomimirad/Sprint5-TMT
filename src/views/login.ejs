@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/formulario.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <title>Inicio</title>
   </head>
 
@@ -37,15 +38,15 @@
             <br />
             <label for="contraseña">Contraseña:</label>
             <br />
-            <input type="password" id="contraseña" name="contra" class="form_input" />
+            <input type="password" id="contrasena" name="contra" class="form_input" />
             <p>
               Si tiene problemas para acceder a su cuenta envienos su mensaje al
               mueblesTMT@gmail.com
             </p>
           </div>
           <div class="derecha">
-            <button>Acceder</button>
-            <button>Crear cuenta</button>
+            <button type="submit">Acceder</button>
+            <a href="/register"><button>Crear cuenta</button></a>
             <img src="/images/logo.png" />
           </div>
         </div>
@@ -53,6 +54,38 @@
     </div>
 
     <%- include('./partials/footer')%>
+    <script>
+
+      let form = document.querySelector('form.formularioLogin')
+      let errores = []
+      form.addEventListener('submit',function(event){
+        
+        errores = []
+        let email = document.querySelector('input#email')
+        if (email.value == '') {
+          errores.push('El campo Email no puede estar vacío.')
+        }
+        let contrasena = document.querySelector('input#contrasena')
+        if (contrasena.value == '') {
+          errores.push('El campo contraseña no puede estar vacío.')
+        }
+        let textoHTML = "<ul>";
+          for ( i = 0; i < errores.length; i++) {
+            textoHTML += "<li>" + errores[i] + "</li>";
+          }
+          textoHTML += "</ul>";
+          if(errores.length > 0){
+            event.preventDefault()
+            Swal.fire({
+              title: 'Error! 😡',
+              html: textoHTML,
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            })
+          }
+
+      })
+    </script>
 
   </body>
 </html>
