@@ -68,7 +68,6 @@
             let form = document.querySelector('form.formularioRegister')
             let errores = []
             form.addEventListener('submit',function(event){
-              event.preventDefault()
               errores = []
               let nombre = document.querySelector('input#nombre')
               if (nombre.value == '') {

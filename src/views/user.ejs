@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="register-abajo">
-                    <button type="submit" >Actualizar</button>
+                    <button type="submit">Actualizar</button>
                 </div>
                 <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
             </form>
@@ -95,7 +95,6 @@
                 let form = document.querySelector('form.formularioRegister')
                 let errores = []
                 form.addEventListener('submit', function (event) {
-                    event.preventDefault()
                     errores = []
                     let nombre = document.querySelector('input#nombre')
                     if (nombre.value == '') {
@@ -121,8 +120,8 @@
                         textoHTML += "<li>" + errores[i] + "</li>";
                     }
                     textoHTML += "</ul>";
-
                     if (errores.length > 0) {
+                        console.log('Hola', errores);
                         event.preventDefault()
                         Swal.fire({
                             title: 'Error! 😡',
