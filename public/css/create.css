@@ -20,6 +20,19 @@
     display: none; */
 }
 
+
+.contenedor-create .errors-formul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  height: fit-content;
+  background-color: #f5c9c7 ;
+  border-radius: 15px;
+  margin: 10px;
+  padding: 10px;
+}
+
 .formulario-edit{
   display: flex;
   width: 55vw;

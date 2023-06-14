@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js" defer></script>
   <link rel="stylesheet" href="/css/create.css" />
   <title>Document</title>
 </head>
@@ -14,17 +15,20 @@
 
     <div class="cuadroNegro" id="negro"></div>
     <div class="contenedor-create">
-      <% if(locals.errores && errores.name)  {%>
-        <p><%= errores.name %></p>
-    <% } %>
-       
+      <% if (locals && locals.errores) { %>
+        <div class="errors-formul">
+          <% for( let error in errores ) { %>
+            <p class="form-check-error">&bull; <%= errores[error].msg %></p>
+          <% } %>
+        </div>
+        <% } %>
 
       <h1>Bienvenido al area de carga de productos</h1>
       <div class="formulario-create" id="create">
         <div class="izquierda-create">
           <img src="/images/logo2.png" width="200px" height="200px" />
         </div>
-        <form class="derecha-create" action="/products" method="POST" enctype="multipart/form-data">
+        <form class="derecha-create" action="/products" method="POST" enctype="multipart/form-data" id="derecha-create">
           <span class="titulo">Nuevo producto</span>
           <div class="form-section">
             <input type="text" placeholder="Nombre del producto" name="titulo" class="textBox-1" id="nombreDeProducto"
@@ -43,8 +47,8 @@
           </div>
           <div class="form-section" id="color">
             <span>Subcategoria:</span>
-            <select name="subcategoria" >
-              <option value="">Elija una subcategoria</option>
+            <select name="subcategoria" id="subcategoria">
+              <option value=""> Elija una subcategoria</option>
               <option value="1" >Mesa</option>
               <option value="2" >Camas</option>
               <option value="3">Escritorios</option>
@@ -79,6 +83,57 @@
         document.getElementById("negro").style.display = "none";
       }
     </script> -->
+
+    <script>
+      let nombre = document.querySelector('#nombreDeProducto')
+      console.log("hola",nombre.value.length)
+      let form = document.querySelector('.derecha-create')
+      let errores = [];
+      form.addEventListener('submit',function(event){
+        errores = []
+        if (nombre.value.length <= 0) {
+          errores.push('El campo Nombre no puede estar vacío.')
+        }
+
+        let descripcion = document.querySelector('#descripcion')
+        if (descripcion.value == '') {
+          errores.push('El campo Descripcion no puede estar vacío.')
+        }
+
+        let precio = document.querySelector('#precio')
+        if (precio.value == '') {
+          errores.push('El campo Precio no puede estar vacío.')
+        }
+
+        let descuento = document.querySelector('#descuento')
+        if (descuento.value == '') {
+          errores.push('El campo Descuento no puede estar vacío.')
+        }
+        let cuota = document.querySelector('#cuota')
+        if (cuota.value == '') {
+          errores.push('El campo Cuota no puede estar vacío.')
+        }
+        let subCategoria = document.querySelector('#subcategoria')
+        if (subCategoria.value == '') {
+          errores.push('El campo Subcategoria no puede estar vacío.')
+        }
+        let textoHTML = "<ul>";
+          for ( i = 0; i < errores.length; i++) {
+            textoHTML += "<li>" + errores[i] + "</li>";
+          }
+          textoHTML += "</ul>";
+          
+          if(errores.length > 0){
+            event.preventDefault()
+            Swal.fire({
+              title: 'Error! 😡',
+              html: textoHTML,
+              icon: 'error',
+              confirmButtonText: 'Ok'
+            })
+          }
+      })
+    </script>
 
     <%- include('./partials/footer')%>
 </body>

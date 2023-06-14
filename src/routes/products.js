@@ -18,7 +18,7 @@ const validacionesCrear = [
     check('descripcion').notEmpty().withMessage('Ingrese una descripcion').bail(),
     check('descuento').notEmpty().withMessage('Ingrese un descuento.').bail().isInt(),
     check('cuotas').notEmpty().withMessage('Ingrese una cuota').bail().isInt(),
-    // body("subcategoria").notEmpty.withMessage("Elija una subcategoria")
+    check("subcategoria").notEmpty().withMessage("Elija una subcategoria")
 ]
 
 /*** GET ALL PRODUCTS ***/ 
