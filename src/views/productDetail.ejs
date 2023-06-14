@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/productDetail.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="/css/create.css">
     <title>Document</title>
 </head>
@@ -44,7 +45,8 @@
                                 <% } %>
                     </div>
                     <div class="botones">
-                        <a href="/products/carrito/<%=producto.producto_id%>"><span class="botom"> Agregar al carrito <img
+                        <a href="/products/carrito/<%=producto.producto_id%>"><span class="botom"> Agregar al carrito
+                                <img
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAQlJREFUSEvNlMEVATEQhr+tgBKoAB1QAR3gygEdUAEXrqgAHVABKkAFqIA33mbf2pVNWPHMNZP55s8/Ew/H4Tmuz08BN1/NBZgBvW+oCytQAFW3AqzTQl49URcYAiug5gKQBc5+4TxwTAPRmSwe1FMU3gElua8DFIFtCsAJyCUB5Ey6KGggqrHoYKj0AdA3ARrA9ENA4J1p0WQnMiGILj+sZAOU1R0TYAR03gQ0/UV9XDMBxKjDi2fSeXD1zRXlVgBJWgLVCEQHmAPiXRAmBZIo27ywHNnY92IDMI2sYu8B2Z+nsAVYCoin2QLGQAuYAO1ImaQz4xSpWuE5jzaVdGYNcK7AuQf/C7gDNOwuGTttIPQAAAAASUVORK5CYII=" /></span></a>
                         <div class="bot-carrito delet">
                             <form action="/products/delete/<%=producto.producto_id %>?_method=DELETE" method="POST"
@@ -76,9 +78,8 @@
                             <span class="titulo">Actualizar
                                 datos</span>
                             <div class="form-section">
-                                <input type="text" placeholder="Nombre del
-                                                    producto" name="titulo" class="textBox-1" id="nombreDeProducto"
-                                    value="<%= producto.titulo%>" />
+                                <input type="text" placeholder="Nombre del producto" name="titulo" class="textBox-1"
+                                    id="nombreDeProducto" value="<%= producto.titulo%>" />
                             </div>
                             <div class="form-section">
                                 <input type="texto" name="category" value="<%=
@@ -89,40 +90,33 @@
                             <div class="form-section" id="precio-img">
                                 <input type="number" id="precio" name="precio" placeholder="Precio" value="<%=
                                                         producto.precio %>" />
-                                <button class="agregarImg"><input type="file" name="img" value="
+                                <button class="agregarImg"><input type="file" style="width: 80% ; border : none "
+                                        name="img" value="
                                                         <%= producto.img %>"></button>
                             </div>
                             <div class="form-section" id="color">
-                                <span>Color</span>
-                                <select name="color">
-                                    <option value="">Elegir
-                                        color</option>
-                                    <option value="rojo" <%=producto.color=="rojo" ? "selected" : "" %>>Rojo</option>
-                                    <option value="azul" <%=producto.color=="azul" ? "selected" : "" %>>Azul</option>
-                                    <option value="verde" <%=producto.color=="verde" ? "selected" : "" %>>Verde</option>
-                                </select>
                                 <span>Subcategoria:</span>
-                                <select name="subcategoria" required">
-                                    <option value=""></option>
-                                    <option value="1" <%=producto.subcategoria=="1" ? "selected" : "" %>>Mesa</option>
-                                    <option value="2" <%=producto.subcategoria=="2" ? "selected" : "" %>>Camas</option>
-                                    <option value="3" <%=producto.subcategoria=="3" ? "selected" : "" %>>Escritorios
+                                <select name="subcategoria" required id="subcat">
+                                    <option value="1" <%=producto.subcategoria=="1" ? "selected" : "" %> > Mesa</option>
+                                    <option value="2" <%=producto.subcategoria=="2" ? "selected" : "" %> >Camas</option>
+                                    <option value="3" <%=producto.subcategoria=="3" ? "selected" : "" %> >Escritorios
                                     </option>
-                                    <option value="4" <%=producto.subcategoria=="4" ? "selected" : "" %>>Sillon</option>
-                                    <option value="5" <%=producto.subcategoria=="5" ? "selected" : "" %>>Microondas
+                                    <option value="4" <%=producto.subcategoria=="4" ? "selected" : "" %> >Sillon
                                     </option>
-                                    <option value="6" <%=producto.subcategoria=="6" ? "selected" : "" %>>Televisores
+                                    <option value="5" <%=producto.subcategoria=="5" ? "selected" : "" %> >Microondas
                                     </option>
-                                    <option value="7" <%=producto.subcategoria=="7" ? "selected" : "" %>>Lavarropas
+                                    <option value="6" <%=producto.subcategoria=="6" ? "selected" : "" %> >Televisores
                                     </option>
-                                    <option value="8" <%=producto.subcategoria=="8" ? "selected" : "" %>>Cafeteras
+                                    <option value="7" <%=producto.subcategoria=="7" ? "selected" : "" %> >Lavarropas
+                                    </option>
+                                    <option value="8" <%=producto.subcategoria=="8" ? "selected" : "" %> >Cafeteras
                                     </option>
                                 </select>
                             </div>
                             <div class="form-section">
-                                <button type="submit" class="agregar">Agregar
-                                    producto</button>
-                                <span class="agregar" id="cancel" onclick="cancel()">Cancelar</span>
+                                <button type="submit" class="agregar">Actualizar</button>
+                                <span class="agregar" id="cancel" onclick="cancel()"
+                                    style="background-color: #f87474;">Cancelar</span>
                             </div>
                         </form>
                     </div>
@@ -149,6 +143,46 @@
                     document.getElementById("edit").style.display = "none";
                     document.getElementById("negro").style.display = "none";
                 }
+
+                let form = document.querySelector('form.derecha-create')
+                let errores = []
+                form.addEventListener('submit', function (event) {
+                    errores = []
+
+                    let nombre = document.querySelector('#nombreDeProducto')
+                    if (nombre.value.length <= 0) {
+                       
+                        errores.push('El campo Nombre del producto no puede estar vacío.')
+                    }
+
+                    let apellido = document.querySelector('#descripcion')
+                    if (apellido.value.length <= 0) {
+                        errores.push('El campo "Descripcion" no puede estar vacío.')
+                    }
+
+                    let email = document.querySelector('#precio')
+                    if (email.value <= 0) {
+                        errores.push('El campo "precio" no puede estar vacío.')
+                    }
+                    console.log(apellido.value);
+                    if (errores.length > 0) {
+
+
+                        let textoHTML = "<ul>";
+                        for (i = 0; i < errores.length; i++) {
+                            textoHTML += "<li>" + errores[i] + "</li>";
+                        }
+                        textoHTML += "</ul>";
+                        event.preventDefault()
+                        Swal.fire({
+                            title: 'Error! 😡',
+                            html: textoHTML,
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+                    
+                })
             </script>
 </body>
 
