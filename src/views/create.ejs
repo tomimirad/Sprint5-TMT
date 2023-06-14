@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js" defer></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <link rel="stylesheet" href="/css/create.css" />
   <title>Document</title>
 </head>
@@ -39,7 +39,7 @@
           </div>
           <div class="form-section" id="precio-img">
             <input type="number" id="precio" name="precio" placeholder="Precio" value="<%= locals.old && old.precio ? old.precio : "" %>" />
-            <input type="number" id="descueto" name="descuento" placeholder="Descuento" value="<%= locals.old && old.descuento ? old.descuento : "" %>"/>
+            <input type="number" id="descuento" name="descuento" placeholder="Descuento" value="<%= locals.old && old.descuento ? old.descuento : "" %>"/>
             <input type="number" id="cuota" name="cuotas" placeholder="cuota" value="<%= locals.old && old.cuotas ? old.cuotas : "" %>"/>
           </div>
           <div class="form-section" id="img">
@@ -86,12 +86,11 @@
 
     <script>
       let nombre = document.querySelector('#nombreDeProducto')
-      console.log("hola",nombre.value.length)
       let form = document.querySelector('.derecha-create')
       let errores = [];
       form.addEventListener('submit',function(event){
         errores = []
-        if (nombre.value.length <= 0) {
+        if (nombre.value == '') {
           errores.push('El campo Nombre no puede estar vacío.')
         }
 
